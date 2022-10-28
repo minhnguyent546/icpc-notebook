@@ -1,0 +1,95 @@
+\ProvidesPackage{negzeropkg}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsbsy}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{pxfonts} % for bfseries
+\usepackage{titlesec} % titlespacing
+\usepackage{import}
+\usepackage[top=20mm,bottom=15mm,left=20mm,right=15mm]{geometry}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{myblue}{rgb}{0,0,200}
+\definecolor{bluemonokai}{HTML}{66D9EF}
+
+\hypersetup{pdfborder=0 0 0} % remove red box in table of contents
+
+\setlength{\columnseprule}{0.5pt} % Multicol separation line with
+\setlength{\columnsep}{25pt} % Multicol separation margin
+
+\titlespacing{\section}{-6pt}{\parskip}{-\parskip}
+\titlespacing{\subsection}{-6pt}{\parskip}{-\parskip}
+\titlespacing{\subsubsection}{-6pt}{\parskip}{-\parskip}
+%
+%\setlength{\abovedisplayskip}{-15pt}
+%\setlength{\belowdisplayskip}{0pt}
+%\setlength{\abovedisplayshortskip}{0pt}
+%\setlength{\belowdisplayshortskip}{0pt}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{Can Tho University}
+\fancyhead[R]{Page \thepage\ of \pageref{LastPage}}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[C]{CTU.NegativeZero}
+
+\lstdefinestyle{mystyle}{   
+%    backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  keywordstyle=\bfseries\color{myblue},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=true,                  
+  tabsize=2,
+  aboveskip=3pt,
+  belowskip=2pt
+}
+\lstset{style=mystyle}
+
+\newcommand{\negzeroinput}[1]{
+  \def\@chapterdir{#1}
+  \input{\@chapterdir/chapter.tex}
+}
+
+% include with SECTION
+% \newcommand{\includecpp}[2]{
+%   \def\@sectionname{#1}
+%   \def\@filepath{\@chapterdir/#2}
+%   \subsection{\@sectionname}
+%     \lstinputlisting[language=c++]{\@filepath}
+% }
+
+% \newcommand{\includepy}[2]{
+%   \def\@sectionname{#1}
+%   \def\@filename{#2}
+%   \subsection{\@sectionname}
+%     \lstinputlisting[language=python]{\@filename}
+% }
+
+% include without SECTION
+\newcommand{\includecpp}[1]{
+  \def\@filepath{\@chapterdir/#1}
+  \lstinputlisting[language=c++]{\@filepath}
+}
+\newcommand{\includepy}[1]{
+  \def\@filepath{\@chapterdir/#1}
+  \lstinputlisting[language=python]{\@filepath}
+}

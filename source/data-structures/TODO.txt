@@ -1,0 +1,3 @@
+fenwick tree: range update + range query
+fenwick tree: 2D fenwick tree
+segment tree: 2D segment tree

@@ -1,0 +1,9 @@
+- manacher's algorithm
+- z function
+- lyndon factorization
+	+ finding the smallest cyclic shift
+	
+-----------------------------------------------------------------
+	DONE:
+- manacher's algorithm
+
