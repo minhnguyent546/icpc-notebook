@@ -1,9 +1,10 @@
-- manacher's algorithm
+- Manacher's algorithm
 - z function
-- lyndon factorization
+- Lyndon factorization
 	+ finding the smallest cyclic shift
+- Aho-Corasick algorithm
+- Minimum rotation: https://codeforces.com/blog/entry/90035#problem
 	
 -----------------------------------------------------------------
 	DONE:
-- manacher's algorithm
-
+- Manacher's algorithm
