@@ -4,7 +4,10 @@
 	+ finding the smallest cyclic shift
 - Aho-Corasick algorithm
 - Minimum rotation: https://codeforces.com/blog/entry/90035#problem
-	
+- Palindrome tree
+- Suffix array
+- Suffix tree
+- Suffix automaton
 -----------------------------------------------------------------
 	DONE:
 - Manacher's algorithm

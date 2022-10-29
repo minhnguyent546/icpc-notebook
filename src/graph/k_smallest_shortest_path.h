@@ -1,4 +1,4 @@
-/** Finding k smallest shortest path from vertex s to vertex t,
+/** Finding the k-th smallest shortest path from vertex s to vertex t,
  *  each vertex can be visited more than once.
  */
 using adj_list = vector<vector<pair<int, int>>>;
