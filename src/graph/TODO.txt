@@ -1,2 +1,2 @@
-- konig's theorem
-- eulerian path
+- Konig's theorem
+- Eulerian path
