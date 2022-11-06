@@ -86,12 +86,25 @@
 %     \lstinputlisting[language=python]{\@filename}
 % }
 
+% \newcommand{\includejava}[2]{
+%   \def\@sectionname{#1}
+%   \def\@filename{#2}
+%   \subsection{\@sectionname}
+%     \lstinputlisting[language=java]{\@filename}
+% }
+
 % include without SECTION
 \newcommand{\includecpp}[1]{
   \def\@filepath{\@chapterdir/#1}
   \lstinputlisting[language=c++]{\@filepath}
 }
+
 \newcommand{\includepy}[1]{
   \def\@filepath{\@chapterdir/#1}
   \lstinputlisting[language=python]{\@filepath}
+}
+
+\newcommand{\includejava}[1]{
+  \def\@filepath{\@chapterdir/#1}
+  \lstinputlisting[language=java]{\@filepath}
 }
