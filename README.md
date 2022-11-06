@@ -1,5 +1,9 @@
 # CTU.NegativeZero ICPC Notebook
 
+## Contest
+- [C++](src/contest/template.h)
+- [Debug](src/contest/debug.h)
+- [Java](src/contest/template.java)
 
 ## Mathematics
 
@@ -20,6 +24,7 @@
 - [Prefix funftion](src/string/prefix_function.h)
 - [Counting occurrences of each prefix](src/string/couting_occurrences_of_prefix.h)
 - [Knuth-Morris-Pratt algorithm](src/string/KMP.h)
+- [Suffix array](src/string/suffix_array.h)
 - [Manacher's algorithm](src/string/manacher.h)
 - [Trie](src/string/trie.h)
 - [Hashing](src/string/hash61.h)
@@ -54,5 +59,3 @@
 - [Ternary search](src/misc/ternary_search.h)
 - [Dutch flag national problem](src/misc/dutch_flag_national_problem.h)
 - [Matrix](src/misc/matrix.h)
-- [Debugging](src/misc/debug.h)
-
