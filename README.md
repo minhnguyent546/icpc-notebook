@@ -4,10 +4,8 @@
 - [C++](src/contest/template.h)
 - [Debug](src/contest/debug.h)
 - [Java](src/contest/template.java)
-
-## Mathematics
-
-- [Math](src/mathematics)
+- [Sublime-build](src/contest/build-system-c%2B%2B17.sublime-build)
+- [.bashrc](src/contest/.bashrc)
 
 ## Data structures
 
@@ -19,9 +17,14 @@
 - [Persistent lazy segment tree](src/data-structures/persistent_lazy_segment_tree.h)
 - [Fenwick tree](src/data-structures/fenwick_tree.h)
 
+## Mathematics
+
+- [Math](src/mathematics)
+
+
 ## String
 
-- [Prefix funftion](src/string/prefix_function.h)
+- [Prefix function](src/string/prefix_function.h)
 - [Counting occurrences of each prefix](src/string/couting_occurrences_of_prefix.h)
 - [Knuth-Morris-Pratt algorithm](src/string/KMP.h)
 - [Suffix array](src/string/suffix_array.h)
@@ -31,8 +34,14 @@
 
 ## Number theory
 
+- [Euler's totient function]
+- [Mobius function]
+- [Primes]
+- [Wilson's theorrem]
 - [Zeckendorf’s theorem](src/number-theory/zeckendorf_theorem.h)
+- [Bitwise operation](src/number-theory/mask.h)
 - [Pollard's rho algorithm](src/number-theory/pollard_rho.h)
+- [Combinatorics]
 
 ## Linear algebra
 
@@ -50,6 +59,8 @@
 
 ## Graph
 
+- [Strongly connected components](src/graph/scc.h)
+- [Topo sort](src/graph/topo_sort.h)
 - [K-th smallest shortest path](src/graph/k_smallest_shortest_path.h)
 - [Eulerian path (directed graph)](src/graph/eulerian_path_directed.h)
 - [Eulerian path (undirected graph)](src/graph/eulerian_path_undirected.h)

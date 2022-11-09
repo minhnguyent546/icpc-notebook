@@ -30,7 +30,7 @@
 \titlespacing{\section}{-6pt}{\parskip}{-\parskip}
 \titlespacing{\subsection}{-6pt}{\parskip}{-\parskip}
 \titlespacing{\subsubsection}{-6pt}{\parskip}{-\parskip}
-%
+
 %\setlength{\abovedisplayskip}{-15pt}
 %\setlength{\belowdisplayskip}{0pt}
 %\setlength{\abovedisplayshortskip}{0pt}
@@ -56,10 +56,10 @@
   captionpos=b,                    
   keepspaces=true,                 
   numbers=left,                    
-  numbersep=5pt,                  
+  numbersep=6pt,                  
   showspaces=false,                
   showstringspaces=false,
-  showtabs=true,                  
+  % showtabs=false                 
   tabsize=2,
   aboveskip=3pt,
   belowskip=2pt
@@ -71,29 +71,11 @@
   \input{\@chapterdir/chapter.tex}
 }
 
-% include with SECTION
-% \newcommand{\includecpp}[2]{
-%   \def\@sectionname{#1}
-%   \def\@filepath{\@chapterdir/#2}
-%   \subsection{\@sectionname}
-%     \lstinputlisting[language=c++]{\@filepath}
-% }
+\newcommand{\includeraw}[1]{
+  \def\@filepath{\@chapterdir/#1}
+  \lstinputlisting{\@filepath}
+}
 
-% \newcommand{\includepy}[2]{
-%   \def\@sectionname{#1}
-%   \def\@filename{#2}
-%   \subsection{\@sectionname}
-%     \lstinputlisting[language=python]{\@filename}
-% }
-
-% \newcommand{\includejava}[2]{
-%   \def\@sectionname{#1}
-%   \def\@filename{#2}
-%   \subsection{\@sectionname}
-%     \lstinputlisting[language=java]{\@filename}
-% }
-
-% include without SECTION
 \newcommand{\includecpp}[1]{
   \def\@filepath{\@chapterdir/#1}
   \lstinputlisting[language=c++]{\@filepath}

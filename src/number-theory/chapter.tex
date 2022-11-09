@@ -56,17 +56,6 @@ Approximating the number of primes up to $n$:
 		\hline
 		$n$ & $\pi(n)$ & $\dfrac{n}{\ln{n} - 1}$ \\
 		\hline
-		% $1e^2$ & 25 & ??? & ??? \\ 
-		% $5e^2$ & 95 & ??? & ??? \\ 
-		% $1e^3$ & 168 & 145 & 169 \\ 
-		% $5e^3$ & 669 & ??? & ??? \\ 
-		% $1e^4$ & 1229 & 1086 & 1218 \\ 
-		% $5e^4$ & 5133 & ??? & ??? \\ 
-		% $1e^5$ & 9592 & 8686 & 9512 \\ 
-		% $5e^5$ & 41538 & ??? & ??? \\ 
-		% $1e^6$ & 78498 & 72382 & 78030 \\ 
-		% $5e^6$ & 348513 & ??? & ??? \\ 
-
 		$100\ (1e^2)$ & 25 & 28 \\ 
 		$500\ (5e^2)$ & 95 & 96 \\ 
 		$1000\ (1e^3)$ & 168 & 169 \\ 
@@ -118,8 +107,11 @@ distinct non-consecutive Fibonacci numbers. For example:
 \end{multicols}
 \begin{itemize}
 	\item Iterating over all subsets of a set and iterating over all submasks of a mask:
-	\includecpp{mask.h}
 \end{itemize}
+	\includecpp{mask.h}	
+
+\subsection{Pollard's rho algorithm}
+	\includecpp{pollard_rho.h}
 
 \subsection{Combinatorics}
 \subsubsection{Catalan numbers}
@@ -147,8 +139,5 @@ Partitions of $n$ distinct elements into exactly $k$ non-empty groups.
 
 \subsubsection{Derangements}
 Permutation of the elements of a set, such that no element appears in its original position (no fixied point). Recursive formulas:
-\[ D(n) = (n - 1)[D(n - 1) + D(n - 2)] = nD(n - 1) + (-1)^n\]
-
-\subsection{Pollard's rho algorithm}
-	\includecpp{pollard_rho.h}
+\[D(n) = (n - 1)[D(n - 1) + D(n - 2)] = nD(n - 1) + (-1)^n\]
 	

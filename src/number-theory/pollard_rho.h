@@ -42,21 +42,6 @@ num_type f(num_type x, int c, num_type mod) { // f(x) = (x^2 + c) % mod.
 num_type pollard_rho(num_type n, int c) {
     // algorithm to find a random divisor of `n`.
     // using random function: f(x) = (x^2 + c) % n.
-
-    // **************** Floyd's cycle detection algorithm **************** 
-    // move 1 step and 2 steps.
-    // num_type x = 2, y = 2, d;
-    // while (true) {
-    //     x = f(x, c, n);
-    //     y = f(y, c, n);
-    //     y = f(y, c, n);
-    //     d = __gcd(llabs(x - y), n);
-    //     if (d > 1) break;
-    // }
-    // return d;
-
-    // **************** Brent's cycle detection algorithm **************** 
-    // move power of two steps.
     num_type x = 2, y = x, d;
     long long p = 1;
     int dist = 0;
