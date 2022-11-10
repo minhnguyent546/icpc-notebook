@@ -15,6 +15,7 @@
 - [Segment tree](src/data-structures/segment_tree.h)
 - [Efficient segment tree](src/data-structures/efficient_segment_tree.h)
 - [Persistent lazy segment tree](src/data-structures/persistent_lazy_segment_tree.h)
+- [Disjoint sparse table](src/data-structures/disjoint_sparse_table.h)
 - [Fenwick tree](src/data-structures/fenwick_tree.h)
 
 ## Mathematics
