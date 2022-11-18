@@ -17,6 +17,7 @@
 - [Persistent lazy segment tree](src/data-structures/persistent_lazy_segment_tree.h)
 - [Disjoint sparse table](src/data-structures/disjoint_sparse_table.h)
 - [Fenwick tree](src/data-structures/fenwick_tree.h)
+- [Treap](src/data-structures/implicit_treap.h)
 
 ## Mathematics
 
@@ -42,6 +43,8 @@
 - [Zeckendorf’s theorem](src/number-theory/zeckendorf_theorem.h)
 - [Bitwise operation](src/number-theory/mask.h)
 - [Pollard's rho algorithm](src/number-theory/pollard_rho.h)
+- [Bitset sieve](src/number-theory/bitset_sieve.h)
+- [Block sieve](src/number-theory/block_sieve.h)
 - [Combinatorics]
 
 ## Linear algebra
@@ -60,6 +63,8 @@
 
 ## Graph
 
+- [Bellman-Ford algorithm](src/graph/bellman_ford.h)
+- [Articulation point and Bridge](src/graph/articulation_point_and_bridge.h)
 - [Strongly connected components](src/graph/scc.h)
 - [Topo sort](src/graph/topo_sort.h)
 - [K-th smallest shortest path](src/graph/k_smallest_shortest_path.h)

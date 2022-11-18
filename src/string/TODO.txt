@@ -1,13 +1,10 @@
-- Manacher's algorithm
+- (DONE) Manacher's algorithm
 - z function
 - Lyndon factorization
 	+ finding the smallest cyclic shift
 - Aho-Corasick algorithm
 - Minimum rotation: https://codeforces.com/blog/entry/90035#problem
 - Palindrome tree
-- Suffix array
+- (DONE) Suffix array
 - Suffix tree
 - Suffix automaton
------------------------------------------------------------------
-	DONE:
-- Manacher's algorithm

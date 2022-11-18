@@ -113,12 +113,18 @@ distinct non-consecutive Fibonacci numbers. For example:
 \subsection{Pollard's rho algorithm}
 	\includecpp{pollard_rho.h}
 
+\subsection{Bitset sieve}
+	\includecpp{bitset_sieve.h}
+
+\subsection{Block sieve}
+	\includecpp{block_sieve.h}
+
 \subsection{Combinatorics}
 \subsubsection{Catalan numbers}
 \[ C_n = \frac{1}{n + 1} {2n \choose n} = \frac{(2n)!}{n!(n+1)!}\]
 \[ C_{n + 1} = \displaystyle\sum_{i = 0}^{n}C_i C_{n - i},\ C_0 = 1,\ C_n = \frac{4n - 2}{n + 1}C_{n - 1}\]
 \begin{itemize}
-	\item The first 12 Catalan numbers $(n = 0, 1, 2, \ldots, 12)$: 
+	\item The first 12 Catalan numbers $(n = 0, 1, 2, \ldots, 11)$: 
 	\[ C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786 \]
 	\item Applications of Catalan numbers:
 	\begin{itemize}
