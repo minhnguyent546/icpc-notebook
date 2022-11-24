@@ -84,7 +84,7 @@ distinct non-consecutive Fibonacci numbers. For example:
 		85 &= 55 + 21 + 8 + 1
 	\end{align*}
 	\vspace{-0.45cm}
-	\includecpp{zeckendorf_theorem.h}
+	\negzeroinclude{zeckendorf_theorem.h}
 
 \subsection{Bitwise operation}
 \begin{multicols}{2}
@@ -108,23 +108,44 @@ distinct non-consecutive Fibonacci numbers. For example:
 \begin{itemize}
 	\item Iterating over all subsets of a set and iterating over all submasks of a mask:
 \end{itemize}
-	\includecpp{mask.h}	
+	\negzeroinclude{mask.h}
 
 \subsection{Pollard's rho algorithm}
-	\includecpp{pollard_rho.h}
+	\negzeroinclude{pollard_rho.h}
 
 \subsection{Bitset sieve}
-	\includecpp{bitset_sieve.h}
+	\negzeroinclude{bitset_sieve.h}
 
 \subsection{Block sieve}
-	\includecpp{block_sieve.h}
+	\negzeroinclude{block_sieve.h}
 
 \subsection{Combinatorics}
+\subsubsection{Fibonacci numbers}
+\[ F_{n} =
+	\begin{cases} 
+		0 & \text{if } n = 0 \\ 
+		1 & \text{if } n = 1 \\ 
+		F_{n - 1} + F_{n - 2} & \text{otherwise}
+	\end{cases}
+\]
+\begin{itemize}
+	\item The first 20 Fibonacci numbers ($n = 0, 1, 2, \ldots, 19$):
+	\[ F_n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181 \]
+	\item Properties:
+	\begin{multicols*}{2}
+		$F_{2n + 1} = F_{n}^2 + F_{n + 1}^2$ \\ 
+		$F_{2n} = F_{n - 1} \cdot F_{n} + F_{n} \cdot F_{n + 1}$ \\ 
+		$F_{n + 1} \cdot F_{n - 1} - F_{n}^2 = (-1)^{n}$ \\ 
+		$n\ |\ m \iff F_{n}\ |\ F_{m}$ \\ 
+		$(F_{n}, F_{m}) = F_{(n, m)}$
+	\end{multicols*}
+\end{itemize}
+
 \subsubsection{Catalan numbers}
 \[ C_n = \frac{1}{n + 1} {2n \choose n} = \frac{(2n)!}{n!(n+1)!}\]
 \[ C_{n + 1} = \displaystyle\sum_{i = 0}^{n}C_i C_{n - i},\ C_0 = 1,\ C_n = \frac{4n - 2}{n + 1}C_{n - 1}\]
 \begin{itemize}
-	\item The first 12 Catalan numbers $(n = 0, 1, 2, \ldots, 11)$: 
+	\item The first 12 Catalan numbers ($n = 0, 1, 2, \ldots, 11$): 
 	\[ C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786 \]
 	\item Applications of Catalan numbers:
 	\begin{itemize}
