@@ -23,9 +23,9 @@
 	\item Application in Euler's theorem:
 	\begin{itemize}
 		\item If gcd($a, M$) = 1, then:
-		\[ a^{\phi(M)} \equiv 1\ (\text{mod}\ M) \Rightarrow a^{n} \equiv a^{n\ \text{mod}\ \phi(M)}\ (\text{mod}\ M)\]
+		\[ a^{\phi(M)} \equiv 1 \pmod M \Rightarrow a^{n} \equiv a^{n \bmod \phi(M)} \pmod M \]
 		\item In general, for arbitrary $a$, $M$ and $n \geq \log_2{M}$:
-		\[ a^{n} \equiv a^{\phi(M) + [n\ \text{mod}\ \phi(M)]}\ (\text{mod}\ M)\]
+		\[ a^{n} \equiv a^{\phi(M) + [n \bmod \phi(M)]} \pmod M \]
 	\end{itemize}
 \end{itemize}
 
@@ -73,7 +73,7 @@ Approximating the number of primes up to $n$:
 
 \subsection{Wilson's theorem}
 A positive integer $n$ is a prime if and only if:
-\[ (n - 1)! \equiv n - 1\ (\text{mod}\ n)\]
+\[ (n - 1)! \equiv n - 1 \pmod n \]
 
 \subsection{Zeckendorf’s theorem}
 The Zeckendorf's theorem states that every positive integer $n$ can be represented uniquely as a sum of one or more 
