@@ -92,19 +92,20 @@ distinct non-consecutive Fibonacci numbers. For example:
 \begin{itemize}
   	\setlength{\parskip}{0pt}
  	\setlength{\itemsep}{0pt plus 1pt}
-	\item $a + b = (a \oplus b) + 2(a\ \&\ b)$
-	\item $a\ |\ b = (a \oplus b) + (a\ \&\ b)$
-	\item $a\ \&\ (b \oplus c) = (a\ \&\ b) \oplus (a\ \&\ c)$
-	\item $a\ |\ (b\ \&\ c) = (a\ |\ b)\ \&\ (a\ |\ c)$
-	\item $a\ \&\ (b\ |\ c) = (a\ \&\ b)\ |\ (a\ \&\ c)$
-  	\item $a\ |\ (a\ \&\ b) = a$
-	\item $a\ \&\ (a\ |\ b) = a$
-	\item $n = 2 ^ k \Leftrightarrow\ !(n\ \&\ (n - 1)) = 1$
-	\item $-a =\ \sim a + 1$
-	\item $(4i)\ \oplus\ (4i + 1)\ \oplus\ (4i + 2)\ \oplus\ (4i + 3) = 0$
+	\item $a + b = (a \bitxor b) + 2(a \bitand b)$
+	\item $a \bitor b = (a \bitxor b) + (a \bitand b)$
+	\item $a \bitand (b \bitxor c) = (a \bitand b) \bitxor (a \bitand c)$
+	\item $a \bitor (b \bitand c) = (a \bitor b) \bitand (a \bitor c)$
+	\item $a \bitand (b \bitor c) = (a \bitand b) \bitor (a \bitand c)$
+	\item $a \bitor (a \bitand b) = a$
+	\item $a \bitand (a \bitor b) = a$
+	\item $n = 2^{k} \Leftrightarrow !(n \bitand (n - 1)) = 1$
+	\item $-a = \bitneg a + 1$
+	\item $4i \bitxor (4i + 1) \bitxor (4i + 2) \bitxor (4i + 3) = 0$
 \end{itemize}
 \vspace{-\topsep}
 \end{multicols}
+
 \begin{itemize}
 	\item Iterating over all subsets of a set and iterating over all submasks of a mask:
 \end{itemize}

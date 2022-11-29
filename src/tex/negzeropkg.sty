@@ -66,6 +66,14 @@
 }
 \lstset{style=mystyle}
 
+% for bitwise operations
+\newcommand*\bitand{\mathbin{\&}}
+\newcommand*\bitor{\mathbin{|}}
+\newcommand*\bitxor{\mathbin{\oplus}}
+\newcommand*\sll{\ll} % shift left logical
+\newcommand*\srl{\gg} % shift right logical
+\newcommand*\bitneg{\ensuremath{\mathord{\sim}}}
+
 \newcommand{\negzeroinput}[1]{
   \def\@chapterdir{#1}
   \input{\@chapterdir/chapter.tex}
