@@ -1,6 +1,7 @@
 # CTU.NegativeZero ICPC Notebook
 
 ## Contest
+
 - [C++](src/contest/template.h)
 - [Debug](src/contest/debug.h)
 - [Java](src/contest/template.java)
@@ -23,13 +24,13 @@
 
 - [Math](src/mathematics)
 
-
 ## String
 
 - [Prefix function](src/string/prefix_function.h)
 - [Counting occurrences of each prefix](src/string/couting_occurrences_of_prefix.h)
 - [Knuth-Morris-Pratt algorithm](src/string/KMP.h)
 - [Suffix array](src/string/suffix_array.h)
+- [Suffix array slow](src/string/suffix_array_slow.h)
 - [Manacher's algorithm](src/string/manacher.h)
 - [Trie](src/string/trie.h)
 - [Hashing](src/string/hash61.h)
@@ -47,10 +48,6 @@
 - [Block sieve](src/number-theory/block_sieve.h)
 - [Combinatorics]
 
-## Linear algebra
-
-- [Gauss elimination](src/linear-algebra/gauss_elimination.h)
-
 ## Geometry
 
 - [Point](src/geometry/point.h)
@@ -60,6 +57,10 @@
 - [Convex hull](src/geometry/convex_hull.h)
 - [Polygon](src/geometry/polygon.h)
 - [Minimum enclosing circle](src/geometry/minimum_enclosing_circle.h)
+
+## Linear algebra
+
+- [Gauss elimination](src/linear-algebra/gauss_elimination.h)
 
 ## Graph
 

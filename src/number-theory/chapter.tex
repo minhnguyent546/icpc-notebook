@@ -17,7 +17,7 @@
 		\item With $n = p_1^{k_1} \cdot p_2^{k_2} \cdots p_m^{k_m}$:
 		\begin{align*}
 			\phi(n) &= \phi(p_1^{k_1}) \cdot \phi(p_2^{k_2}) \cdots \phi(p_m^{k_m}) \\ 
-			&= n \cdot \left(1 - \dfrac{1}{p_1}\right) \cdot \left(1 - \dfrac{1}{p_2}\right) \cdots \cdot \left(1 - \dfrac{1}{p_m}\right)
+			&= n \cdot \left(1 - \dfrac{1}{p_1}\right) \cdot \left(1 - \dfrac{1}{p_2}\right) \cdots \left(1 - \dfrac{1}{p_m}\right)
 		\end{align*}
 	\end{itemize}
 	\item Application in Euler's theorem:
@@ -121,27 +121,6 @@ distinct non-consecutive Fibonacci numbers. For example:
 	\negzeroinclude{block_sieve.h}
 
 \subsection{Combinatorics}
-\subsubsection{Fibonacci numbers}
-\[ F_{n} =
-	\begin{cases} 
-		0 & \text{if } n = 0 \\ 
-		1 & \text{if } n = 1 \\ 
-		F_{n - 1} + F_{n - 2} & \text{otherwise}
-	\end{cases}
-\]
-\begin{itemize}
-	\item The first 20 Fibonacci numbers ($n = 0, 1, 2, \ldots, 19$):
-	\[ F_n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181 \]
-	\item Properties:
-	\begin{multicols*}{2}
-		$F_{2n + 1} = F_{n}^2 + F_{n + 1}^2$ \\ 
-		$F_{2n} = F_{n - 1} \cdot F_{n} + F_{n} \cdot F_{n + 1}$ \\ 
-		$F_{n + 1} \cdot F_{n - 1} - F_{n}^2 = (-1)^{n}$ \\ 
-		$n\ |\ m \iff F_{n}\ |\ F_{m}$ \\ 
-		$(F_{n}, F_{m}) = F_{(n, m)}$
-	\end{multicols*}
-\end{itemize}
-
 \subsubsection{Catalan numbers}
 \[ C_n = \frac{1}{n + 1} {2n \choose n} = \frac{(2n)!}{n!(n+1)!}\]
 \[ C_{n + 1} = \displaystyle\sum_{i = 0}^{n}C_i C_{n - i},\ C_0 = 1,\ C_n = \frac{4n - 2}{n + 1}C_{n - 1}\]
@@ -158,6 +137,27 @@ distinct non-consecutive Fibonacci numbers. For example:
 	\end{itemize}
 \end{itemize}
 % TODO: Catalan convolution
+
+\subsubsection{Fibonacci numbers}
+\[ F_{n} =
+	\begin{cases} 
+		0, & \text{if } n = 0 \\ 
+		1, & \text{if } n = 1 \\ 
+		F_{n - 1} + F_{n - 2}, & \text{otherwise}
+	\end{cases}
+\]
+\begin{itemize}
+	\item The first 20 Fibonacci numbers ($n = 0, 1, 2, \ldots, 19$):
+	\[ F_n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181 \]
+	\item Properties:
+	\begin{multicols*}{2}
+		$F_{2n + 1} = F_{n}^2 + F_{n + 1}^2$ \\ 
+		$F_{2n} = F_{n - 1} \cdot F_{n} + F_{n} \cdot F_{n + 1}$ \\ 
+		$F_{n + 1} \cdot F_{n - 1} - F_{n}^2 = (-1)^{n}$ \\ 
+		$n\ |\ m \iff F_{n}\ |\ F_{m}$ \\ 
+		$(F_{n}, F_{m}) = F_{(n, m)}$
+	\end{multicols*}
+\end{itemize}
 
 \subsubsection{Stirling numbers of the second kind}
 Partitions of $n$ distinct elements into exactly $k$ non-empty groups.
