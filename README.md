@@ -34,6 +34,7 @@
 - [Manacher's algorithm](src/string/manacher.h)
 - [Trie](src/string/trie.h)
 - [Hashing](src/string/hash61.h)
+- [Minimum rotation](src/string/min_rotation.h)
 
 ## Number theory
 
