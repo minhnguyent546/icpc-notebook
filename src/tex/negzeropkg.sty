@@ -66,6 +66,33 @@
 }
 \lstset{style=mystyle}
 
+\newcommand{\university}[1]{
+  \def\@universityname{#1}
+}
+\newcommand{\team}[2]{
+  \def\@teamname{#1}
+  \def\@teammember{#2}
+}
+\newcommand{\contest}[2]{
+  \def\@contestname{#1}
+  \def\@contestdate{#2}
+}
+\newcommand{\maketitlepage}{
+  \begin{titlepage}
+    \vspace*{0.15\textheight}
+    \begin{center}
+      {\fontsize{30}{30}\selectfont \@universityname \par}
+      \vspace{0.25cm}
+      {\fontsize{48}{48}\selectfont \@teamname \par}
+      \vspace{0.25cm}
+      {\Large \@teammember \par}
+      \vfill
+      {\huge \@contestname \par}
+      \vspace{0.25cm}
+      {\Large \@contestdate \par}
+    \end{center}
+  \end{titlepage}
+}
 % for bitwise operations
 \newcommand*\bitand{\mathbin{\&}}
 \newcommand*\bitor{\mathbin{|}}
