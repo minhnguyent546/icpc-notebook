@@ -1,3 +1,7 @@
+/**
+ * Description: range update and range sum query.
+ */
+
 using tree_type = long long;
 struct FenwickTree {
     int n;
@@ -7,7 +11,8 @@ struct FenwickTree {
         fenw_coeff.assign(n, 0); // fenwick tree with coefficient (n - i).
         fenw.assign(n, 0); // normal fenwick tree.
     }
-    void build(const vector<int> &A) {
+    template<typename G>
+    void build(const vector<G> &A) {
         assert((int) A.size() == n);
         vector<int> diff(n);
         diff[0] = A[0];

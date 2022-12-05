@@ -18,6 +18,7 @@
 - [Persistent lazy segment tree](src/data-structures/persistent_lazy_segment_tree.h)
 - [Disjoint sparse table](src/data-structures/disjoint_sparse_table.h)
 - [Fenwick tree](src/data-structures/fenwick_tree.h)
+- [Fenwick tree 2D](src/data-structures/fenwick_tree_2d.h)
 - [Treap](src/data-structures/implicit_treap.h)
 
 ## Mathematics
@@ -45,6 +46,7 @@
 - [Zeckendorf’s theorem](src/number-theory/zeckendorf_theorem.h)
 - [Bitwise operation](src/number-theory/mask.h)
 - [Pollard's rho algorithm](src/number-theory/pollard_rho.h)
+- [Segment divisor sieve](src/number-theory/segment_divisor_sieve.h)
 - [Bitset sieve](src/number-theory/bitset_sieve.h)
 - [Block sieve](src/number-theory/block_sieve.h)
 - [Combinatorics]
@@ -76,5 +78,6 @@
 ## Miscellaneous
 
 - [Ternary search](src/misc/ternary_search.h)
+- [Ternary search 2](src/misc/ternary_search_2.h)
 - [Dutch flag national problem](src/misc/dutch_flag_national_problem.h)
 - [Matrix](src/misc/matrix.h)
