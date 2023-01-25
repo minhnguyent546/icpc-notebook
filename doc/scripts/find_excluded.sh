@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash 
 
 mkdir -p build/
 grep -PRho '^\s*\\negzeroinclude(\[\w*\])?{\K.*' ../../src/ | sed 's/.$//' > build/included_headers
