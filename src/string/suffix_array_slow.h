@@ -6,7 +6,7 @@ vector<int> suffix_array_slow(string &s) {
         order[i] = i; rank[i] = s[i];
     }
     for (int k = 0; k < n; k = max(1, k * 2)) {
-        stable_sort(sa.begin(), sa.end(), [&](int i, int j) {
+        stable_sort(order.begin(), order.end(), [&](int i, int j) {
             return make_pair(rank[i], rank[(i + k) % n]) < make_pair(rank[j], rank[(j + k) % n]);
         });
         vector<int> nrank(n);

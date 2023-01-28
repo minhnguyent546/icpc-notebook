@@ -1,3 +1,4 @@
+#include "prefix_function.h"
 vector<int> count_occurrences(const string &s) {
     vector<int> pi = prefix_function(s);
     int n = (int) s.size();

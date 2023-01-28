@@ -19,7 +19,7 @@ void find_path(vector<list<Edge>> &g, int u) {
     }
     vertices.emplace_back(u); // reversion list. 
 }
-void add_edge(int u, int v) {
+void add_edge(vector<list<Edge>> &g, int u, int v) {
     g[u].emplace_front(v);
     g[v].emplace_front(u);
     g[u].front().reverse_edge = g[v].begin();

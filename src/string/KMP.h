@@ -2,6 +2,9 @@
  * Searching for a substring in a string. 
  * Time complexity: O(N + M).
  */
+
+#include "prefix_function.h"
+
 vector<int> KMP(const string &text, const string &pattern) {
     int n = (int) text.length();
     int m = (int) pattern.length();

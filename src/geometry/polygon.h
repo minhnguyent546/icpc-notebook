@@ -1,16 +1,18 @@
-double perimeter(const vector<point> &P) {
+#include "point.h"
+
+double perimeter(const vector<Point> &P) {
     double ans = 0.0;
     for (int i = 0; i < (int)P.size() - 1; ++i)
         ans += abs(P[i] - P[i + 1]);
     return ans;
 }
-double area(const vector<point> &P) {
+double area(const vector<Point> &P) {
     double ans = 0.0;
     for (int i = 0; i < (int)P.size() - 1; ++i)
         ans += (P[i].x * P[i + 1].y - P[i + 1].x * P[i].y);
     return fabs(ans) / 2.0;
 }
-bool isConvex(const vector<point> &P) {
+bool isConvex(const vector<Point> &P) {
     int n = (int)P.size();
     if (n <= 3) return false;
     bool firstTurn = ccw(P[0], P[1], P[2]);
@@ -19,7 +21,7 @@ bool isConvex(const vector<point> &P) {
             return false;
     return true;
 }
-int insidePolygon(point pt, const vector<point> &P) {
+int insidePolygon(Point pt, const vector<Point> &P) {
     int n = (int)P.size();
     if (n <= 3) return -1;
     bool on_polygon = false;

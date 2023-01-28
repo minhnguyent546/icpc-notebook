@@ -3,9 +3,13 @@
  * national/solutions/E/RR_ternary.cpp
  */
 
+#include <bits/stdc++.h>
+using namespace std;
+#include "../geometry/point.h"
+
 Point A, B, C;
 double f(Point P) {
-    return (P - A).len() + (P - B).len() + (P - C).len();
+    return abs(P - A) + abs(P - B) + abs(P - C);
 }
 double f(double x, double& y) {
     double l = -2000, r = 2000;

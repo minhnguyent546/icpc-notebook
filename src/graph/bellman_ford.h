@@ -10,6 +10,8 @@ struct Edge {
     Edge() {}
     Edge(int _u, int _v, int64_t _w) : u(_u), v(_v), w(_w) {}
 };
+int n;
+vector<Edge> edges;
 vector<int64_t> bellmanFord(int s) {
     // dist[stating] = 0.
     // dist[u] = +INF, if u is unreachable. 

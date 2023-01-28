@@ -1,3 +1,5 @@
+using matrix_type = int;
+const int MOD = (int) 1e9 + 7;
 struct Matrix {
     static const matrix_type INF = numeric_limits<matrix_type>::max();
     int N, M;

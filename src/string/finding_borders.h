@@ -2,6 +2,7 @@
  * Description: given a string s of length n, a prefix of s is called a border of s if it is also a suffix of s.
  * Tested: https://cses.fi/problemset/task/1732
  */
+#include "prefix_function.h"
 vector<int> find_borders(const string &s) {
     int n = (int) s.size();
     vector<int> pi = prefix_function(s);

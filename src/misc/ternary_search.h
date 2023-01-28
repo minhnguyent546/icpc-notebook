@@ -1,4 +1,5 @@
 const double eps = 1e-9;
+double f(double x) { return 42; }
 double ternary_search_max(double l, double r) {
     // find x0 such that: f(x0) > f(x), \all x: l <= x <= r. 
     while (r - l > eps) {

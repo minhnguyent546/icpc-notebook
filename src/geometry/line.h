@@ -1,13 +1,15 @@
-struct line {
+#include "point.h"
+
+struct Line {
     double a, b, c;
-    line (double _a = 0, double _b = 0, double _c = 0): a(_a), b(_b), c(_c) {}
-    friend ostream & operator<<(ostream& out, const line& l);
+    Line (double _a = 0, double _b = 0, double _c = 0): a(_a), b(_b), c(_c) {}
+    friend ostream & operator<<(ostream& out, const Line& l);
 };
-ostream & operator<<(ostream& out, const line& l) {
+ostream & operator<<(ostream& out, const Line& l) {
     out << l.a << ' ' << l.b << ' ' << l.c;
     return out;
 }
-void pointsToLine(const point& p1, const point& p2, line& l) {
+void PointsToLine(const Point& p1, const Point& p2, Line& l) {
     if (fabs(p1.x - p2.x) < EPS)
         l = {1.0, 0.0, -p1.x};
     else {
@@ -16,40 +18,40 @@ void pointsToLine(const point& p1, const point& p2, line& l) {
         l.c =  - l.a * p1.x - l.b * p1.y;
     }
 }
-void pointsSlopeToLine(const point& p, double m, line& l) {
+void PointsSlopeToLine(const Point& p, double m, Line& l) {
     l.a = -m;
     l.b = 1;
     l.c = -l.a * p.x - l.b * p.y;
 }
-bool areParallel(const line& l1, const line& l2) {
+bool areParallel(const Line& l1, const Line& l2) {
     return fabs(l1.a - l2.a) < EPS && fabs(l1.b - l2.b) < EPS;
 }
-bool areSame(const line& l1, const line& l2) {
+bool areSame(const Line& l1, const Line& l2) {
     return areParallel(l1, l2) && fabs(l1.c - l2.c) < EPS;
 }
-bool areIntersect(line l1, line l2, point& p) {
+bool areIntersect(Line l1, Line l2, Point& p) {
     if (areParallel(l1, l2)) return false;
     p.x = - (l1.c * l2.b - l1.b * l2.c) / (l1.a * l2.b - l1.b * l2.a);
     if (fabs(l1.b) > EPS) p.y = - (l1.c + l1.a * p.x);
     else p.y = - (l2.c + l2.a * p.x);
     return 1;
 }
-double distToLine(point p, point a, point b, point& c) {
+double distToLine(Point p, Point a, Point b, Point& c) {
     double t = dot(p - a, b - a) / norm(b - a);
     c = a + (b - a) * t;
     return abs(c - p);
 }
-double distToSegment(point p, point a, point b, point& c) {
+double distToSegment(Point p, Point a, Point b, Point& c) {
     double t = dot(p - a, b - a) / norm(b - a);
     if (t > 1.0)
-        c = point(b.x, b.y);
+        c = Point(b.x, b.y);
     else if (t < 0.0)
-        c = point(a.x, a.y);
+        c = Point(a.x, a.y);
     else
         c = a + (b - a) * t;
     return abs(c - p);
 }
-bool intersectTwoSegment(point a, point b, point c, point d) {
+bool intersectTwoSegment(Point a, Point b, Point c, Point d) {
     ftype ABxAC = cross(b - a, c - a);
     ftype ABxAD = cross(b - a, d - a);
     ftype CDxCA = cross(d - c, a - c);
@@ -63,7 +65,7 @@ bool intersectTwoSegment(point a, point b, point c, point d) {
     }
     return (ABxAC * ABxAD < 0 && CDxCA * CDxCB < 0);
 }
-void perpendicular(line l1, point p, line& l2) {
+void perpendicular(Line l1, Point p, Line& l2) {
     if (fabs(l1.a) < EPS)
         l2 = {1.0, 0.0, -p.x};
     else {

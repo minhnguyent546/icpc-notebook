@@ -27,10 +27,10 @@ struct Hash61 {
         return ret - 1;
     }
     void ensure_pw(int m) {
-        int n = (int) pw.size();
-        if (n >= m) return;
+        int sz = (int) pw.size();
+        if (sz >= m) return;
         pw.resize(m);
-        for (int i = n; i < m; ++i) {
+        for (int i = sz; i < m; ++i) {
             pw[i] = mulmod(pw[i - 1], BASE);
         }
     }
@@ -52,6 +52,6 @@ struct Hash61 {
         return submod(pref[to + 1], mulmod(pref[from], pw[to - from + 1]));
     }
 };
-mt19937 rng((unsigned int) chrono::steady_clock::now().time_since_epoch().count());
+rng((unsigned int) chrono::steady_clock::now().time_since_epoch().count());
 uint64_t Hash61::BASE = (MOD >> 2) + rng() % (MOD >> 1);
 vector<uint64_t> Hash61::pw = vector<uint64_t>(1, 1);

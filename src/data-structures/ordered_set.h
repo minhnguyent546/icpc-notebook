@@ -6,6 +6,7 @@ template<typename key_type>
 using set_t = tree<key_type, null_type, less<key_type>, rb_tree_tag, 
     tree_order_statistics_node_update>;
 
+const int INF = 0x3f3f3f3f;
 void example() {
     vector<int> nums = {1, 2, 3, 5, 10};
     set_t<int> st(nums.begin(), nums.end());

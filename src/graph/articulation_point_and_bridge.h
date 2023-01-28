@@ -26,7 +26,7 @@ void dfs(int u, int prev) {
     if (u == prev && child > 1) joint[u] = true;    
 }
 
-int main() {
+int solve() {
     int n, m;
     cin >> n >> m;
     for (int i = 0; i < m; ++i) {
