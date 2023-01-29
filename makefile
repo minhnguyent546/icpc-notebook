@@ -2,13 +2,17 @@ export TEXINPUTS=.:src/tex/:
 BUILD_DIR=build/
 LATEX=pdflatex -output-directory $(BUILD_DIR)
 
+.PHONY: help clean negzero compileall findexcluded
+
+default: help
+
 help:
 	@echo "\t\tThis makefile builds NegativeZero team notebook"
 	@echo "Here are some available commands:"
-	@echo "- make negzero: 		to build negzero.pdf file"
+	@echo "- make negzero:			to build negzero.pdf file"
 	@echo "- make compileall: 		to test compiling all headers"
-	@echo "- make findexcluded: 		to show files that are not included"
-	@echo "- make clean: 			to clean up build process"
+	@echo "- make findexcluded:		to show files that are not included"
+	@echo "- make clean:			to clean up build process"
 	@echo "- make help: 			to show this information"
 
 clean:
