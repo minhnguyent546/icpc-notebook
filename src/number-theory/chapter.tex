@@ -2,72 +2,72 @@
 
 \subsection{Euler's totient function}
 \begin{itemize}
-	\item Euler's totient function, also known as \textbf{phi-function} $\phi(n)$ 
-	counts the number of integers between 1 and $n$ inclusive, that are
-	\textbf{coprime to} $n$.
-	\item Properties:
-	\begin{itemize}
-		\item Divisor sum property: $\sum\limits_{d | n} \phi(d) = n$.
-		\item $\phi(n)$ is a \textbf{prime number} when $n$ = 3, 4, 6.
-		\item If $p$ is a prime number, then $\phi(p) = p - 1$.
-		\item If $p$ is a prime number and $k \geq 1$, then $\phi(p^k) = p^k - p^{k - 1}$.
-		\item If $a$ and $b$ are \textbf{coprime}, then $\phi(ab) = \phi(a) \cdot \phi(b)$.
-		\item In general, for \textbf{not coprime} $a$ and $b$, with $d = gcd(a, b)$ this equation holds: 
-		$\phi(ab) = \phi(a) \cdot \phi(b) \cdot \dfrac{d}{\phi(d)}$.
-		\item With $n = p_1^{k_1} \cdot p_2^{k_2} \cdots p_m^{k_m}$:
-		\begin{align*}
-			\phi(n) &= \phi(p_1^{k_1}) \cdot \phi(p_2^{k_2}) \cdots \phi(p_m^{k_m}) \\ 
-			&= n \cdot \left(1 - \dfrac{1}{p_1}\right) \cdot \left(1 - \dfrac{1}{p_2}\right) \cdots \left(1 - \dfrac{1}{p_m}\right)
-		\end{align*}
-	\end{itemize}
-	\item Application in Euler's theorem:
-	\begin{itemize}
-		\item If gcd($a, M$) = 1, then:
-		\[ a^{\phi(M)} \equiv 1 \pmod M \Rightarrow a^{n} \equiv a^{n \bmod \phi(M)} \pmod M \]
-		\item In general, for arbitrary $a$, $M$ and $n \geq \log_2{M}$:
-		\[ a^{n} \equiv a^{\phi(M) + [n \bmod \phi(M)]} \pmod M \]
-	\end{itemize}
+  \item Euler's totient function, also known as \textbf{phi-function} $\phi(n)$
+  counts the number of integers between 1 and $n$ inclusive, that are
+  \textbf{coprime to} $n$.
+  \item Properties:
+  \begin{itemize}
+    \item Divisor sum property: $\sum\limits_{d | n} \phi(d) = n$.
+    \item $\phi(n)$ is a \textbf{prime number} when $n$ = 3, 4, 6.
+    \item If $p$ is a prime number, then $\phi(p) = p - 1$.
+    \item If $p$ is a prime number and $k \geq 1$, then $\phi(p^k) = p^k - p^{k - 1}$.
+    \item If $a$ and $b$ are \textbf{coprime}, then $\phi(ab) = \phi(a) \cdot \phi(b)$.
+    \item In general, for \textbf{not coprime} $a$ and $b$, with $d = gcd(a, b)$ this equation holds:
+    $\phi(ab) = \phi(a) \cdot \phi(b) \cdot \dfrac{d}{\phi(d)}$.
+    \item With $n = p_1^{k_1} \cdot p_2^{k_2} \cdots p_m^{k_m}$:
+    \begin{align*}
+      \phi(n) &= \phi(p_1^{k_1}) \cdot \phi(p_2^{k_2}) \cdots \phi(p_m^{k_m}) \\
+      &= n \cdot \left(1 - \dfrac{1}{p_1}\right) \cdot \left(1 - \dfrac{1}{p_2}\right) \cdots \left(1 - \dfrac{1}{p_m}\right)
+    \end{align*}
+  \end{itemize}
+  \item Application in Euler's theorem:
+  \begin{itemize}
+    \item If gcd($a, M$) = 1, then:
+    \[ a^{\phi(M)} \equiv 1 \pmod M \Rightarrow a^{n} \equiv a^{n \bmod \phi(M)} \pmod M \]
+    \item In general, for arbitrary $a$, $M$ and $n \geq \log_2{M}$:
+    \[ a^{n} \equiv a^{\phi(M) + [n \bmod \phi(M)]} \pmod M \]
+  \end{itemize}
 \end{itemize}
 
 \subsection{Mobius function}
 \begin{itemize}
-	\item For a positive integer $n = p_1^{k_1} \cdot p_2^{k_2} \cdots p_m^{k_m}$:
-		\[
-		\mu(n) =
-		\begin{cases}
-			1, & \text{if}\ n = 1\\
-			0, & \text{if}\ \exists k_i > 1\\
-			(-1)^{m} & \text{otherwise}
-		\end{cases}
-		\]
-	\item Properties:
-	\begin{itemize}
-		\item $\sum\limits_{d | n} \mu(d) = [n = 1]$.
-		\item If $a$ and $b$ are \textbf{coprime}, then $\mu(ab) = \mu(a) \cdot \mu(b)$.
-		\item Mobius inversion: let $f$ and $g$ be arithmetic functions:
-		\[ g(n) = \sum\limits_{d | n} f(d) \Leftrightarrow f(n) = \sum\limits_{d | n} \mu\left(\dfrac{n}{d}\right) g(d) \].
-	\end{itemize}
+  \item For a positive integer $n = p_1^{k_1} \cdot p_2^{k_2} \cdots p_m^{k_m}$:
+    \[
+    \mu(n) =
+    \begin{cases}
+      1, & \text{if}\ n = 1\\
+      0, & \text{if}\ \exists k_i > 1\\
+      (-1)^{m} & \text{otherwise}
+    \end{cases}
+    \]
+  \item Properties:
+  \begin{itemize}
+    \item $\sum\limits_{d | n} \mu(d) = [n = 1]$.
+    \item If $a$ and $b$ are \textbf{coprime}, then $\mu(ab) = \mu(a) \cdot \mu(b)$.
+    \item Mobius inversion: let $f$ and $g$ be arithmetic functions:
+    \[ g(n) = \sum\limits_{d | n} f(d) \Leftrightarrow f(n) = \sum\limits_{d | n} \mu\left(\dfrac{n}{d}\right) g(d) \].
+  \end{itemize}
 \end{itemize}
 
 \subsection{Primes}
-Approximating the number of primes up to $n$: 
+Approximating the number of primes up to $n$:
 \begin{center}
-	\begin{tabular}{| l | l | l | }
-		\hline
-		$n$ & $\pi(n)$ & $\dfrac{n}{\ln{n} - 1}$ \\
-		\hline
-		$100\ (1e^2)$ & 25 & 28 \\ 
-		$500\ (5e^2)$ & 95 & 96 \\ 
-		$1000\ (1e^3)$ & 168 & 169 \\ 
-		$5000\ (5e^3)$ & 669 & 665 \\ 
-		$10000\ (1e^4)$ & 1229 & 1218 \\ 
-		$50000\ (5e^4)$ & 5133 & 5092 \\ 
-		$100000\ (1e^5)$ & 9592 & 9512 \\ 
-		$500000\ (5e^5)$ & 41538 & 41246 \\ 
-		$1000000\ (1e^6)$ & 78498 & 78030 \\ 
-		$5000000\ (5e^6)$ & 348513 & 346622 \\ 
-		\hline
-	\end{tabular}
+  \begin{tabular}{| l | l | l | }
+    \hline
+    $n$ & $\pi(n)$ & $\dfrac{n}{\ln{n} - 1}$ \\
+    \hline
+    $100\ (1e^2)$ & 25 & 28 \\
+    $500\ (5e^2)$ & 95 & 96 \\
+    $1000\ (1e^3)$ & 168 & 169 \\
+    $5000\ (5e^3)$ & 669 & 665 \\
+    $10000\ (1e^4)$ & 1229 & 1218 \\
+    $50000\ (5e^4)$ & 5133 & 5092 \\
+    $100000\ (1e^5)$ & 9592 & 9512 \\
+    $500000\ (5e^5)$ & 41538 & 41246 \\
+    $1000000\ (1e^6)$ & 78498 & 78030 \\
+    $5000000\ (5e^6)$ & 348513 & 346622 \\
+    \hline
+  \end{tabular}
 \end{center}
 ($\pi(n)$ = the number of primes less than or equal to $n$, $\dfrac{n}{\ln{n} - 1}$ is used to approximate $\pi(n)$).
 
@@ -76,90 +76,90 @@ A positive integer $n$ is a prime if and only if:
 \[ (n - 1)! \equiv n - 1 \pmod n \]
 
 \subsection{Zeckendorf’s theorem}
-The Zeckendorf's theorem states that every positive integer $n$ can be represented uniquely as a sum of one or more 
+The Zeckendorf's theorem states that every positive integer $n$ can be represented uniquely as a sum of one or more
 distinct non-consecutive Fibonacci numbers. For example:
-	\vspace{-0.45cm}
-	\begin{align*}
-		64 &= 55 + 8 + 1 \\ 
-		85 &= 55 + 21 + 8 + 1
-	\end{align*}
-	\vspace{-0.45cm}
-	\negzeroinclude{zeckendorf_theorem.h}
+  \vspace{-0.45cm}
+  \begin{align*}
+    64 &= 55 + 8 + 1 \\
+    85 &= 55 + 21 + 8 + 1
+  \end{align*}
+  \vspace{-0.45cm}
+  \negzeroinclude{zeckendorf_theorem.h}
 
 \subsection{Bitwise operation}
 \begin{multicols}{2}
 \vspace{-\topsep}
 \begin{itemize}
-  	\setlength{\parskip}{0pt}
- 	\setlength{\itemsep}{0pt plus 1pt}
-	\item $a + b = (a \bitxor b) + 2(a \bitand b)$
-	\item $a \bitor b = (a \bitxor b) + (a \bitand b)$
-	\item $a \bitand (b \bitxor c) = (a \bitand b) \bitxor (a \bitand c)$
-	\item $a \bitor (b \bitand c) = (a \bitor b) \bitand (a \bitor c)$
-	\item $a \bitand (b \bitor c) = (a \bitand b) \bitor (a \bitand c)$
-	\item $a \bitor (a \bitand b) = a$
-	\item $a \bitand (a \bitor b) = a$
-	\item $n = 2^{k} \Leftrightarrow !(n \bitand (n - 1)) = 1$
-	\item $-a = \bitneg a + 1$
-	\item $4i \bitxor (4i + 1) \bitxor (4i + 2) \bitxor (4i + 3) = 0$
+    \setlength{\parskip}{0pt}
+  \setlength{\itemsep}{0pt plus 1pt}
+  \item $a + b = (a \bitxor b) + 2(a \bitand b)$
+  \item $a \bitor b = (a \bitxor b) + (a \bitand b)$
+  \item $a \bitand (b \bitxor c) = (a \bitand b) \bitxor (a \bitand c)$
+  \item $a \bitor (b \bitand c) = (a \bitor b) \bitand (a \bitor c)$
+  \item $a \bitand (b \bitor c) = (a \bitand b) \bitor (a \bitand c)$
+  \item $a \bitor (a \bitand b) = a$
+  \item $a \bitand (a \bitor b) = a$
+  \item $n = 2^{k} \Leftrightarrow !(n \bitand (n - 1)) = 1$
+  \item $-a = \bitneg a + 1$
+  \item $4i \bitxor (4i + 1) \bitxor (4i + 2) \bitxor (4i + 3) = 0$
 \end{itemize}
 \vspace{-\topsep}
 \end{multicols}
 
 \begin{itemize}
-	\item Iterating over all subsets of a set and iterating over all submasks of a mask:
+  \item Iterating over all subsets of a set and iterating over all submasks of a mask:
 \end{itemize}
-	\negzeroinclude{mask.h}
+  \negzeroinclude{mask.h}
 
 \subsection{Pollard's rho algorithm}
-	\negzeroinclude{pollard_rho.h}
+  \negzeroinclude{pollard_rho.h}
 
 \subsection{Segment divisor sieve}
-	\negzeroinclude{segment_divisor_sieve.h}
+  \negzeroinclude{segment_divisor_sieve.h}
 
 \subsection{Bitset sieve}
-	\negzeroinclude{bitset_sieve.h}
+  \negzeroinclude{bitset_sieve.h}
 
 \subsection{Block sieve}
-	\negzeroinclude{block_sieve.h}
+  \negzeroinclude{block_sieve.h}
 
 \subsection{Combinatorics}
 \subsubsection{Catalan numbers}
 \[ C_n = \frac{1}{n + 1} {2n \choose n} = \frac{(2n)!}{n!(n+1)!}\]
 \[ C_{n + 1} = \displaystyle\sum_{i = 0}^{n}C_i C_{n - i},\ C_0 = 1,\ C_n = \frac{4n - 2}{n + 1}C_{n - 1}\]
 \begin{itemize}
-	\item The first 12 Catalan numbers ($n = 0, 1, 2, \ldots, 11$): 
-	\[ C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786 \]
-	\item Applications of Catalan numbers:
-	\begin{itemize}
-		\item difference binary search trees with $n$ vertices from 1 to $n$. 
-		\item rooted binary trees with $n + 1$ leaves (vertices are not numbered).
-		\item correct bracket sequence of length $2 * n$.
-		\item permutation $[n]$ with no 3-term increasing subsequence (i.e. doesn't exist $i < j < k$ for which $a[i] < a[j] < a[k]$).
-		\item ways a convex polygon of $n$ + 2 sides can split into triangles by connecting vertices. 
-	\end{itemize}
+  \item The first 12 Catalan numbers ($n = 0, 1, 2, \ldots, 11$):
+  \[ C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786 \]
+  \item Applications of Catalan numbers:
+  \begin{itemize}
+    \item difference binary search trees with $n$ vertices from 1 to $n$.
+    \item rooted binary trees with $n + 1$ leaves (vertices are not numbered).
+    \item correct bracket sequence of length $2 * n$.
+    \item permutation $[n]$ with no 3-term increasing subsequence (i.e. doesn't exist $i < j < k$ for which $a[i] < a[j] < a[k]$).
+    \item ways a convex polygon of $n$ + 2 sides can split into triangles by connecting vertices.
+  \end{itemize}
 \end{itemize}
 % TODO: Catalan convolution
 
 \subsubsection{Fibonacci numbers}
 \[ F_{n} =
-	\begin{cases} 
-		0, & \text{if } n = 0 \\ 
-		1, & \text{if } n = 1 \\ 
-		F_{n - 1} + F_{n - 2}, & \text{otherwise}
-	\end{cases}
+  \begin{cases}
+    0, & \text{if } n = 0 \\
+    1, & \text{if } n = 1 \\
+    F_{n - 1} + F_{n - 2}, & \text{otherwise}
+  \end{cases}
 \]
 \begin{itemize}
-	\item The first 20 Fibonacci numbers ($n = 0, 1, 2, \ldots, 19$):
-	\[ F_n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181 \]
-	\item Properties:
-	\begin{multicols*}{2}
-		$F_{2n + 1} = F_{n}^2 + F_{n + 1}^2$ \\ 
-		$F_{2n} = F_{n - 1} \cdot F_{n} + F_{n} \cdot F_{n + 1}$ \\ 
-		$F_{n + 1} \cdot F_{n - 1} - F_{n}^2 = (-1)^{n}$ \\ 
-		$n\ |\ m \iff F_{n}\ |\ F_{m}$ \\ 
-		$(F_{n}, F_{m}) = F_{(n, m)}$
-	\end{multicols*}
+  \item The first 20 Fibonacci numbers ($n = 0, 1, 2, \ldots, 19$):
+  \[ F_n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181 \]
+  \item Properties:
+  \begin{multicols*}{2}
+    $F_{2n + 1} = F_{n}^2 + F_{n + 1}^2$ \\
+    $F_{2n} = F_{n - 1} \cdot F_{n} + F_{n} \cdot F_{n + 1}$ \\
+    $F_{n + 1} \cdot F_{n - 1} - F_{n}^2 = (-1)^{n}$ \\
+    $n\ |\ m \iff F_{n}\ |\ F_{m}$ \\
+    $(F_{n}, F_{m}) = F_{(n, m)}$
+  \end{multicols*}
 \end{itemize}
 
 \subsubsection{Stirling numbers of the second kind}
@@ -171,4 +171,3 @@ Partitions of $n$ distinct elements into exactly $k$ non-empty groups.
 \subsubsection{Derangements}
 Permutation of the elements of a set, such that no element appears in its original position (no fixied point). Recursive formulas:
 \[D(n) = (n - 1)[D(n - 1) + D(n - 2)] = nD(n - 1) + (-1)^n\]
-	

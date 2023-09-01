@@ -17,32 +17,32 @@ echo
 declare -i pass=0
 declare -a fail_headers
 for header in $headers; do 
-	b_header="${header#./*/}"
-	echo "${b_header}:"
-	${SCRIPT_DIR}/compile_header.sh "$header"
-	exitCode=$?
-	if (( exitCode != 0 )); then
-		echo "[Fail to compile ${b_header}, exit Code=${exitCode}]"
-		fail_headers+=("${b_header}")
-	else
-		echo "[ok]"
-		pass+=1
-	fi
-	echo 
+  b_header="${header#./*/}"
+  echo "${b_header}:"
+  ${SCRIPT_DIR}/compile_header.sh "$header"
+  exitCode=$?
+  if (( exitCode != 0 )); then
+    echo "[Fail to compile ${b_header}, exit Code=${exitCode}]"
+    fail_headers+=("${b_header}")
+  else
+    echo "[ok]"
+    pass+=1
+  fi
+  echo
 done
 
 rm -f "${DIR}/src/contest/template.h.gch"
 
 fail=${#fail_headers[@]}
 if (( fail == 0 )); then
-	echo "Everything is good."
-	exit 0
+  echo "Everything is good."
+  exit 0
 else
-	echo "Pass $pass/$(( pass + fail ))"
-	echo "Failed headers: "
-	# echo "${fail_headers[@]}"
-	for header in "${fail_headers[@]}"; do 
-		echo "$header"
-	done
-	exit 1
+  echo "Pass $pass/$(( pass + fail ))"
+  echo "Failed headers: "
+  # echo "${fail_headers[@]}"
+  for header in "${fail_headers[@]}"; do
+    echo "$header"
+  done
+  exit 1
 fi

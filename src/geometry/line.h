@@ -74,3 +74,4 @@ void perpendicular(Line l1, Point p, Line& l2) {
         l2.c = -l2.a * p.x - l2.b * p.y;
     }
 }
+

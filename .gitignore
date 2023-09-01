@@ -1,6 +1,8 @@
+# latex build stuff
 *.out
 *.bak
 *.log
 *.toc
 *.aux
+
 src/*/*.cpp
