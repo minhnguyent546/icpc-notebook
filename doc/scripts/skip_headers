@@ -2,4 +2,4 @@ contest/debug.h
 contest/template.h
 data-structures/sparse_table.h
 string/min_rotation.h
-misc/ternary_search_2.h
+misc/dutch_flag_national_problem.h

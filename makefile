@@ -9,7 +9,7 @@ help:
 	@echo "Here are some available commands:"
 	@echo "- make negzero:			to build negzero.pdf file"
 	@echo "- make compileall: 		to test compiling all headers"
-	@echo "- make findexcluded:		to show files that are not included"
+	@echo "- make findexcluded:		to show headers that are not included"
 	@echo "- make clean:			to clean up build process"
 	@echo "- make help: 			to show this information"
 
