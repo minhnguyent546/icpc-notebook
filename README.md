@@ -1,83 +1,21 @@
-# CTU.NegativeZero ICPC Notebook
+## CTU.NegativeZero ICPC Notebook
 
-## Contest
+- This notebook is used as reference during ICPC contests of our team CTU.NegativeZero, most of the structures are based on [KACTL](https://github.com/kth-competitive-programming/kactl).
 
-- [C++](src/contest/template.h)
-- [Debug](src/contest/debug.h)
-- [Java](src/contest/template.java)
-- [Sublime-build](src/contest/build-system-c%2B%2B17.sublime-build)
-- [.bashrc](src/contest/.bashrc)
+## Setup and customize
 
-## Data structures
+- Clone this repo: 
+    ```bash
+    git clone https://github.com/minhnguyent546/icpc-notebook.git ctu-negzero-notebook
+    cd ctu-negzero-notebook
+    ```
+- This notebook using `pdflatex` to build pdf file from latex sources and `makefile` to automate operations. Make sure you have `texlive` installed, to check syntax in header files:
+    ```bash
+    make compileall
+    ```
+    to build pdf file:
+    ```bash
+    make negzero
+    ```
+    run 'make' for more information.
 
-- [Sparse table](src/data-structures/sparse_table.h)
-- [Ordered set](src/data-structures/ordered_set.h)
-- [Dsu](src/data-structures/dsu.h)
-- [Segment tree](src/data-structures/segment_tree.h)
-- [Efficient segment tree](src/data-structures/efficient_segment_tree.h)
-- [Persistent lazy segment tree](src/data-structures/persistent_lazy_segment_tree.h)
-- [Disjoint sparse table](src/data-structures/disjoint_sparse_table.h)
-- [Fenwick tree](src/data-structures/fenwick_tree.h)
-- [Fenwick tree 2D](src/data-structures/fenwick_tree_2d.h)
-- [Treap](src/data-structures/implicit_treap.h)
-
-## Mathematics
-
-- [Math](src/mathematics)
-
-## String
-
-- [Prefix function](src/string/prefix_function.h)
-- [Counting occurrences of each prefix](src/string/couting_occurrences_of_prefix.h)
-- [Knuth-Morris-Pratt algorithm](src/string/KMP.h)
-- [Suffix array](src/string/suffix_array.h)
-- [Suffix array slow](src/string/suffix_array_slow.h)
-- [Manacher's algorithm](src/string/manacher.h)
-- [Trie](src/string/trie.h)
-- [Hashing](src/string/hash61.h)
-- [Minimum rotation](src/string/min_rotation.h)
-
-## Number theory
-
-- [Euler's totient function]
-- [Mobius function]
-- [Primes]
-- [Wilson's theorrem]
-- [Zeckendorf’s theorem](src/number-theory/zeckendorf_theorem.h)
-- [Bitwise operation](src/number-theory/mask.h)
-- [Pollard's rho algorithm](src/number-theory/pollard_rho.h)
-- [Segment divisor sieve](src/number-theory/segment_divisor_sieve.h)
-- [Bitset sieve](src/number-theory/bitset_sieve.h)
-- [Block sieve](src/number-theory/block_sieve.h)
-- [Combinatorics]
-
-## Geometry
-
-- [Point](src/geometry/point.h)
-- [Line](src/geometry/line.h)
-- [Circle](src/geometry/circle.h)
-- [Triangle](src/geometry/triangle.h)
-- [Convex hull](src/geometry/convex_hull.h)
-- [Polygon](src/geometry/polygon.h)
-- [Minimum enclosing circle](src/geometry/minimum_enclosing_circle.h)
-
-## Linear algebra
-
-- [Gauss elimination](src/linear-algebra/gauss_elimination.h)
-
-## Graph
-
-- [Bellman-Ford algorithm](src/graph/bellman_ford.h)
-- [Articulation point and Bridge](src/graph/articulation_point_and_bridge.h)
-- [Strongly connected components](src/graph/scc.h)
-- [Topo sort](src/graph/topo_sort.h)
-- [K-th smallest shortest path](src/graph/k_smallest_shortest_path.h)
-- [Eulerian path (directed graph)](src/graph/eulerian_path_directed.h)
-- [Eulerian path (undirected graph)](src/graph/eulerian_path_undirected.h)
-
-## Miscellaneous
-
-- [Ternary search](src/misc/ternary_search.h)
-- [Ternary search 2](src/misc/ternary_search_2.h)
-- [Dutch flag national problem](src/misc/dutch_flag_national_problem.h)
-- [Matrix](src/misc/matrix.h)
