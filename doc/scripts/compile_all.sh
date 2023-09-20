@@ -10,7 +10,8 @@ NORMAL_TO_NANO="1000000000"
 
 DIR="${1:-.}"
 SCRIPT_DIR="${DIR}/doc/scripts"
-LOG_FILE="${DIR}/build/compile.log"
+BUILD_DIR="${DIR}/build"
+LOG_FILE="${BUILD_DIR}/compile.log"
 
 trap 'rm -f "${DIR}/src/contest/template.h.gch"' EXIT
 
@@ -25,6 +26,8 @@ headers=$(find "${DIR}/src" -name "*.h" -type f | grep -vFf "${SCRIPT_DIR}/skip_
 echo "Skipped headers: "
 find "${DIR}/src" -name "*.h" -type f | grep -Ff "${SCRIPT_DIR}/skip_headers"
 echo
+
+[[ ! -d "${BUILD_DIR}" ]] && mkdir -p "$BUILD_DIR"
 
 declare -i pass=0
 declare -a fail_headers
