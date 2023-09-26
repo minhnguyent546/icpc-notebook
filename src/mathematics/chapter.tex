@@ -40,26 +40,30 @@
 \subsection{Sums}
 \vspace{-0.6cm}
 \begin{align*}
-  c^{a} + c^{a + 1} + \cdots + c^{b} &= \dfrac{c^{b + 1} - c^{a}}{c - 1},\ c \neq 1 \\
-  c + 2c^{2} + \cdots + nc^{n} &= \dfrac{nc^{n + 2} - (n + 1)c^{n + 1} + c}{(c - 1)^2},\ c \neq 1 \\
-  1 + 2 + 3 + \cdots + n &= \dfrac{n(n + 1)}{2} \\
-  1^2 + 2^2 + 3^2 + \cdots + n^2 &= \dfrac{n(n + 1)(2n + 1)}{6} \\
-  1^3 + 2^3 + 3^3 + \cdots + n^3 &= \left(\dfrac{n(n + 1)}{2}\right)^2 \\
-  1^4 + 2^4 + 3^4 + \cdots + n^4 &= \dfrac{n(n + 1)(2n + 1)(3n^2 + 3n - 1)}{30} \\
-  1^5 + 2^5 + 3^5 + \cdots + n^5 &= \dfrac{n^2(n + 1)^2(2n^2 + 2n - 1)}{12} \\
-  1^6 + 2^6 + 3^6 + \cdots + n^6 &= \dfrac{n(n + 1)(2n + 1)(3n^4 + 6n^3 - 3n + 1)}{42} \\
-  1^7 + 2^7 + 3^7 + \cdots + n^7 &= \dfrac{n^2(n + 1)^2(3n^4 + 6n^3 - n^2 - 4n + 2)}{24}
+  &\sum\limits_{i = a}^{b} c^i = \dfrac{c^{b + 1} - c^{a}}{c - 1},\ c \neq 1
+  &&\sum\limits_{i = 0}^{n} i c^i = \dfrac{nc^{n + 2} - (n + 1)c^{n + 1} + c}{(c - 1)^2},\ c \neq 1 \\
+  &\sum\limits_{i = 1}^{n} i = \dfrac{n(n + 1)}{2}
+  &&\sum\limits_{i = 1}^{n} i^2 = \dfrac{n(n + 1)(2n + 1)}{6} \\
+  &\sum\limits_{i = 1}^{n} i^3 = \left(\dfrac{n(n + 1)}{2}\right)^2
+  &&\sum\limits_{i = 1}^{n} i^4 = \dfrac{n(n + 1)(2n + 1)(3n^2 + 3n - 1)}{30} \\
+  &\sum\limits_{i = 1}^{n} i^5 = \dfrac{n^2(n + 1)^2(2n^2 + 2n - 1)}{12}
+  &&\sum\limits_{i = 1}^{n} i^6 = \dfrac{n(n + 1)(2n + 1)(3n^4 + 6n^3 - 3n + 1)}{42} \\
+  &\sum\limits_{i = 1}^{n} i^7 = \dfrac{n^2(n + 1)^2(3n^4 + 6n^3 - n^2 - 4n + 2)}{24}
+  &&\sum\limits_{i = 0}^{n} {\binom{n}{i} a^{n - i} b^i} = (a + b)^n \\
+  &\sum\limits_{i = 0}^{n} i \binom{n}{i} = n 2^{n - 1}
+  &&\sum\limits_{i = 0}^{n} \dfrac{\binom{n}{i}}{i + 1} = \dfrac{2^{n + 1} - 1}{n + 1} \\
+  &\sum\limits_{k = 0}^{m} \binom{n + k}{n} = \binom{n + m + 1}{n + 1}
+  &&\sum\limits_{i = k}^{n} \binom{i}{k} = \binom{n + 1}{k + 1} \\
 \end{align*}
 
-% \subsection{Generating Pythagorean triples}
-% \begin{wrapfigure}{r}{0.2\textwidth}
-%     \centering
-%     \includegraphics[width=0.12\textwidth]{mathematics/right_triangle}
-% \end{wrapfigure}
-
-% \begin{align*}
-%   a &= m^2 - n^2 \\
-%   b &= 2mn \\
-%   c &= m^2 + n^2
-% \end{align*}
-% Where $m$ and $n$ are positive integers and $m > n$. 
+\subsection{Pythagorean triple}
+\begin{itemize}
+  \item A Pythagorean triple is a triple of positive integers $a$, $b$, and $c$ such that $a^2 + b^2 = c^2$.
+  \item If $(a, b, c)$ is a Pythagorean triple, then so is $(ka, kb, kc)$ for any positive integer $k$.
+  \item A primitive Pythagorean triple is one in which $a$, $b$, and $c$ are coprime.
+  \item Generating Pythagorean triple
+  \begin{itemize}
+    \item Euclid's formula: with arbitrary $0 < n < m$, then: $$a = m^2 - n^2, \quad b = 2mn,\quad c = m^2 + n^2$$ form a Pythagorean triple.
+    \item To obtain primitive Pythagorean triple, this condition must hold: $m$ and $n$ are coprime, $m$ and $n$ have opposite parity.
+  \end{itemize}
+\end{itemize}

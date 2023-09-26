@@ -13,13 +13,17 @@ help:
 	@echo "- make clean:			to clean up build process"
 	@echo "- make help: 			to show this information"
 
-.PHONY: help clean negzero compileall findexcluded
+.PHONY: help clean negzero compileall findexcluded test
 
 clean:
-	cd $(BUILD_DIR) && rm -f negzero.aux negzero.log negzero.out negzero.pdf negzero.toc
+	cd $(BUILD_DIR) && rm -f negzero.aux negzero.log negzero.out negzero.pdf negzero.toc compile.log included_headers
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+
+test: | $(BUILD_DIR)
+	$(LATEX) src/negzero.tex
+	cp $(BUILD_DIR)/negzero.pdf negzero.test.pdf
 
 negzero: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
