@@ -10,7 +10,7 @@ using namespace std;
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 int main() {
-    ios::sync_with_stdio(false); cin.tie(nullptr);
+    cin.tie(nullptr)->sync_with_stdio(false);
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);  
     

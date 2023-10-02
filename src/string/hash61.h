@@ -52,6 +52,6 @@ struct Hash61 {
         return submod(pref[to + 1], mulmod(pref[from], pw[to - from + 1]));
     }
 };
-rng((unsigned int) chrono::steady_clock::now().time_since_epoch().count());
-uint64_t Hash61::BASE = (MOD >> 2) + rng() % (MOD >> 1);
+mt19937 rnd((unsigned int) chrono::steady_clock::now().time_since_epoch().count());
+uint64_t Hash61::BASE = (MOD >> 2) + rnd() % (MOD >> 1);
 vector<uint64_t> Hash61::pw = vector<uint64_t>(1, 1);

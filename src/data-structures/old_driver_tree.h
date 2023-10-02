@@ -48,7 +48,7 @@ struct ODT {
         }
         return -1;
     }
-    int powmod(long long a, long long n, int mod) {}
+    int powmod(long long a, long long n, int mod);
     int sum_of_xth_power(int l, int r, int x, int mod) {
         It it_l = split(l);
         It it_r = split(r + 1);
