@@ -5,4 +5,5 @@
 *.toc
 *.aux
 
-src/*/*.cpp
+src/**/*.cpp
+src/**/TODO.txt
