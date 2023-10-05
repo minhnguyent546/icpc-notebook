@@ -1,7 +1,7 @@
 /**
- * Description: Tarjan's algorithm finds strongly connected components
- *  in a directed graph. If vertices u and v belong to the same component, 
- *  then scc_id[u] == scc_id[v].
+ * Description: Tarjan's algorithm finds strongly connected components (SCC)
+ *   in a directed graph. If two vertices u and v belong to the same component,
+ *   then scc_id[u] == scc_id[v].
  * Tested: https://judge.yosupo.jp/problem/scc
  */
 const int N = (int) 5e5;
@@ -17,15 +17,12 @@ void Tarjan(int u) {
             Tarjan(v);
             low[u] = min(low[u], low[v]);
         }
-        else {
-            low[u] = min(low[u], num[v]);
-        }
+        else low[u] = min(low[u], num[v]);
     }
     if (low[u] == num[u]) {
         int v;
         do {
             v = st.back(); st.pop_back();
-            debug(u, v)
             used[v] = true;
             scc_id[v] = scc;
         } while (v != u);
