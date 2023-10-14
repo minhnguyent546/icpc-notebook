@@ -22,7 +22,7 @@ $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
 test: | $(BUILD_DIR)
-	$(LATEX) src/negzero.tex
+	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
 	cp $(BUILD_DIR)/negzero.pdf negzero.test.pdf
 
 negzero: | $(BUILD_DIR)
