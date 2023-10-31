@@ -1,9 +1,13 @@
 # latex build stuff
-*.out
-*.bak
+/build/
 *.log
 *.toc
 *.aux
+*.out
+*.bak
+*.gch
 
+# some more stuff
 src/**/*.cpp
 src/**/TODO.txt
+/bak/

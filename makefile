@@ -24,6 +24,7 @@ $(BUILD_DIR):
 test: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
 	cp $(BUILD_DIR)/negzero.pdf negzero.test.pdf
+	evince negzero.test.pdf &
 
 negzero: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
