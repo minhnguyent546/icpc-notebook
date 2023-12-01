@@ -1,0 +1,15 @@
+// location: ~/.vscode or ~/.config/Code/User/
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "c++17 system build",
+            "command": "g++ -std=c++17 -DLOCAL -Wall -Wextra -Wfloat-equal -Wconversion -fmax-errors=3 \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.out\"",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        }
+    ]
+}
