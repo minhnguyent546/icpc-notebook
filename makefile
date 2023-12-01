@@ -15,11 +15,11 @@ help:
 
 .PHONY: help clean negzero compileall findexcluded test
 
-clean:
-	cd $(BUILD_DIR) && rm -f negzero.aux negzero.log negzero.out negzero.pdf negzero.toc compile.log included_headers
-
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+
+clean: | $(BUILD_DIR)
+	cd $(BUILD_DIR) && rm -f negzero.aux negzero.log negzero.out negzero.pdf negzero.toc compile.log included_headers
 
 test: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
