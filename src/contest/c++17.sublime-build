@@ -1,4 +1,5 @@
- // tip: sample file can be found at Tools > Developer > View Package File > 'C++ Single File.sublime-build'
+// location: ~/.config/sublime-text/Packages/User/
+// tip: sample file can be found at Tools > Developer > View Package File > 'C++ Single File.sublime-build'
 {
     "shell_cmd": "g++ -std=c++17 -DLOCAL -Wall -Wextra -Wfloat-equal -Wconversion -fmax-errors=3 \"${file}\" -o \"${file_path}/${file_base_name}.out\"",
     "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
