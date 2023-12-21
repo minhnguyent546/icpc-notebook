@@ -24,6 +24,6 @@ void out_error(istream_iterator<string> it, T a, Args... args) {
     replace(begin(_s), end(_s), ',', ' '); \
     stringstream _ss(_s); \
     istream_iterator<string> _it(_ss); \
-    cerr << __FILE__ ":" << __LINE__ << ": "; \
+    cerr << __FILE_NAME__ ":" << __LINE__ << ": "; \
     out_error(_it, __VA_ARGS__); \
 }

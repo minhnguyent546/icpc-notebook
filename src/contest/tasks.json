@@ -4,11 +4,21 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "c++17 system build",
+            "label": "c++17 build",
             "command": "g++ -std=c++17 -DLOCAL -Wall -Wextra -Wfloat-equal -Wconversion -fmax-errors=3 \"${file}\" -o \"${fileDirname}/${fileBasenameNoExtension}.out\"",
             "group": {
-                "kind": "build",
-                "isDefault": true
+                "kind": "build"
+                // "isDefault": true
+            },
+        },
+        {
+            "type": "shell",
+            "label": "c++17 build and run",
+            "dependsOn": ["c++17 build"],
+            "command": "\"${fileDirname}/${fileBasenameNoExtension}.out\" < input > output 2> err",
+            "group": {
+                "kind": "build"
+                // "isDefault": true
             },
         }
     ]
