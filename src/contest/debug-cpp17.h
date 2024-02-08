@@ -108,7 +108,7 @@ ostream &operator<<(ostream &os, tuple<Ts...> tup) {
     os << "(";
     print_tuple_impl(os, tup, index_sequence_for<Ts...>{});
     return os << ")";
-} 
+}
 
 /**
  * https://codeforces.com/blog/entry/125435
@@ -117,10 +117,10 @@ template<typename H, typename... T>
 void debug(const char *names, H &&head, T &&...tail) {
     int i = 0;
     for (size_t bracket = 0; names[i] != '\0' && (names[i] != ',' || bracket != 0); i++) {
-        if (names[i] == '(' or names[i] == '<' or names[i] == '{') {
+        if (names[i] == '(' || names[i] == '<' || names[i] == '{') {
             bracket++;
         }
-        else if (names[i] == ')' or names[i] == '>' or names[i] == '}') {
+        else if (names[i] == ')' || names[i] == '>' || names[i] == '}') {
             bracket--;
         }
     }
@@ -128,7 +128,7 @@ void debug(const char *names, H &&head, T &&...tail) {
     if constexpr (sizeof...(tail)) {
         while (names[i] != '\0' && names[i + 1] == ' ') ++i;
         cerr << " "; debug(names + i + 1, tail...);
-    } 
+    }
     else {
         cerr << '\n';
     }
