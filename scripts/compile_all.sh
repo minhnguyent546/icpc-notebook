@@ -10,7 +10,7 @@ BRED='\033[1;31m'
 NORMAL_TO_NANO="1000000000"
 
 DIR="${1:-.}"
-SCRIPT_DIR="${DIR}/doc/scripts"
+SCRIPT_DIR="${DIR}/scripts"
 BUILD_DIR="${DIR}/build"
 LOG_FILE="${BUILD_DIR}/compile.log"
 
