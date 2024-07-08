@@ -30,6 +30,11 @@ test: | $(BUILD_DIR)
 	cp $(BUILD_DIR)/negzero.pdf negzero-test.pdf
 	okular negzero-test.pdf &
 
+fast: | $(BUILD_DIR)
+	$(LATEX) src/negzero.tex
+	cp $(BUILD_DIR)/negzero.pdf negzero-test.pdf
+	okular negzero-test.pdf &
+
 compileall:
 	./scripts/compile_all.sh .
 
