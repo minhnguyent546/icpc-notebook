@@ -28,6 +28,7 @@
     \[ a^{n} \equiv a^{\phi(M) + [n \bmod \phi(M)]} \pmod M \]
   \end{itemize}
 \end{itemize}
+  \negzeroincludecode{phi_euler_totient_function.h}
 
 \subsection{Mobius function}
 \begin{itemize}
@@ -48,6 +49,7 @@
     \[ g(n) = \sum\limits_{d | n} f(d) \Leftrightarrow f(n) = \sum\limits_{d | n} \mu\left(\dfrac{n}{d}\right) g(d) \].
   \end{itemize}
 \end{itemize}
+  \negzeroincludecode{mobius_function.h}
 
 \subsection{Primes}
 Approximating the number of primes up to $n$:
@@ -84,7 +86,7 @@ distinct non-consecutive Fibonacci numbers. For example:
     85 &= 55 + 21 + 8 + 1
   \end{align*}
   \vspace{-0.45cm}
-  % \negzeroinclude{zeckendorf_theorem.h}
+  % \negzeroincludecode{zeckendorf_theorem.h}
 
 \subsection{Bitwise operation}
 \begin{multicols}{2}
@@ -109,25 +111,19 @@ distinct non-consecutive Fibonacci numbers. For example:
 \begin{itemize}
   \item Iterating over all subsets of a set and iterating over all submasks of a mask:
 \end{itemize}
-  \negzeroinclude{mask.h}
+  \negzeroincludecode{mask.h}
 
 \subsection{Pollard's rho algorithm}
-  \negzeroinclude{pollard_rho.h}
-
-\subsection{Euler's totient function}
-  \negzeroinclude{phi_euler_totient_function.h}
-
-\subsection{Mobius function}
-  \negzeroinclude{mobius_function.h}
+  \negzeroincludecode{pollard_rho.h}
 
 \subsection{Segment divisor sieve}
-  \negzeroinclude{segment_divisor_sieve.h}
+  \negzeroincludecode{segment_divisor_sieve.h}
 
 \subsection{Linear sieve}
-  \negzeroinclude{linear_sieve.h}
+  \negzeroincludecode{linear_sieve.h}
 
 \subsection{Bitset sieve}
-  \negzeroinclude{bitset_sieve.h}
+  \negzeroincludecode{bitset_sieve.h}
 
 \subsection{Block sieve}
-  \negzeroinclude{block_sieve.h}
+  \negzeroincludecode{block_sieve.h}
