@@ -1,26 +1,35 @@
-\documentclass[a4paper, landscape, 9pt]{article}
+\documentclass[a4paper, landscape, 10pt]{article}
 \usepackage{negzeropkg}
 
 \university{Can Tho University}
-\team{CTU.NegativeZero}{Trong Huu Nguyen\\Ngoc Thi Pham\\Minh Thien Nguyen}
-\contest{__ContestName__}{__ContestDate__}
+\team{CTU.NegativeZero}{Member 1\\Member 2\\Member 3}
+\contest{ContestName}{ContestDate}
+
+% metadata setup
+\hypersetup{
+  pdftitle={CTU.NegativeZero notebook},
+  pdfsubject={ICPC notebook of team CTU.NegativeZero},
+  pdfauthor={CTU.NegativeZero},
+  pdfkeywords={ICPC notebook},
+  pdfborder=0 0 0,
+}
 
 \begin{document}
-% \maketitlepage
+% \maketitle
 \tableofcontents
 \pagebreak
 
 \begin{multicols*}{2}
-\negzeroinput{contest}
-\negzeroinput{data-structures}
-\negzeroinput{mathematics}
-\negzeroinput{string}
-\negzeroinput{numerical}
-\negzeroinput{number-theory}
-\negzeroinput{combinatorics}
-\negzeroinput{geometry}
-\negzeroinput{linear-algebra}
-\negzeroinput{graph}
-\negzeroinput{misc}
+\negzeroimport{contest}
+\negzeroimport{data-structures}
+\negzeroimport{mathematics}
+\negzeroimport{string}
+\negzeroimport{numerical}
+\negzeroimport{number-theory}
+\negzeroimport{combinatorics}
+\negzeroimport{geometry}
+\negzeroimport{linear-algebra}
+\negzeroimport{graph}
+\negzeroimport{misc}
 \end{multicols*}
 \end{document}

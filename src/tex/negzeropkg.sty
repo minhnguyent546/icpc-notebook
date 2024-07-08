@@ -1,89 +1,55 @@
 \ProvidesPackage{negzeropkg}
 
 \usepackage{amsmath, amsfonts, amsthm, amssymb, amsbsy}
-\usepackage{float}
 \usepackage{hyperref}
 \usepackage[utf8]{inputenc}
-\usepackage{listings}
+\usepackage{listings} % lstlistings package for displaying code
 \usepackage{xcolor}
 \usepackage{fancyhdr}
-\usepackage{lastpage}
+\usepackage{lastpage} % use \pageref{LastPage} for referencing to the last page of a document
 \usepackage{multicol}
 \usepackage{pxfonts} % for bfseries
 \usepackage{titlesec} % titlespacing
 \usepackage{import}
 \usepackage{graphicx} % inserting images
 \usepackage{wrapfig} % wrapping text around figures
-% \usepackage[top=15mm,bottom=15mm,left=15mm,right=10mm]{geometry}
-\usepackage[top=1.5cm, right=0.75cm, bottom=1.5cm, left=1.0cm]{geometry}
+\usepackage[top=1.5cm, right=0.75cm, bottom=0.25cm, left=1.0cm]{geometry}
 \usepackage{diagbox}
-
+\usepackage[skip=6pt]{parskip}
 \usepackage[toc]{multitoc}
-\renewcommand*{\multicolumntoc}{2}
-\setlength{\columnseprule}{0.5pt}
 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-\definecolor{myblue}{rgb}{0,0,200}
-\definecolor{bluemonokai}{HTML}{66D9EF}
+% TOC
+\setcounter{tocdepth}{3} % TOC depth
+\renewcommand*{\multicolumntoc}{3} % number of columns in TOC
 
+% multicols
+\setlength{\columnseprule}{0.5pt} % multicols separation line with
+\setlength{\columnsep}{26pt} % multicols separation margin
 
-\hypersetup{pdfborder=0 0 0} % remove red box in table of contents
+% colors
+\definecolor{mgreen}{RGB}{0,153,0}
+\definecolor{mgray}{RGB}{127,127,127}
+\definecolor{mpurple}{RGB}{148,0,209}
+\definecolor{mbackcolour}{RGB}{242,242,235}
+\definecolor{mblue}{RGB}{0,0,200}
+\definecolor{mbluemonokai}{RGB}{102,217,239}
 
-\setcounter{tocdepth}{2} % table of contents depth
-
-\setlength{\columnseprule}{0.5pt} % Multicol separation line with
-\setlength{\columnsep}{25pt} % Multicol separation margin
-
-\titlespacing{\section}{-6pt}{\parskip}{-\parskip}
-\titlespacing{\subsection}{-6pt}{\parskip}{-\parskip}
-\titlespacing{\subsubsection}{-6pt}{\parskip}{-\parskip}
-
-%\setlength{\abovedisplayskip}{-15pt}
-%\setlength{\belowdisplayskip}{0pt}
-%\setlength{\abovedisplayshortskip}{0pt}
-%\setlength{\belowdisplayshortskip}{0pt}
-
-% Header and Footer
-\pagestyle{fancy}
-\fancyhead{} % clear all header fields
-\fancyhead[L]{Can Tho University}
-\fancyhead[R]{Page \thepage\ of \pageref{LastPage}}
-\fancyfoot{} % clear all footer fields
-\fancyfoot[C]{CTU.NegativeZero}
-
-\lstdefinestyle{mystyle}{ 
-  commentstyle=\ttfamily\footnotesize,
-  keywordstyle=\bfseries\color{myblue},
-  numberstyle=\tiny,
-  stringstyle=\color{codepurple},
-  basicstyle=\ttfamily\footnotesize,
-  breakatwhitespace=true,
-  breaklines=true,
-  captionpos=b,
-  keepspaces=true,
-  showspaces=false,
-  showstringspaces=false,
-  tabsize=2,
-  aboveskip=1.5pt,
-  belowskip=1.5pt
-}
-\lstset{style=mystyle}
-
+% title page
 \newcommand{\university}[1]{
   \def\@universityname{#1}
 }
+
 \newcommand{\team}[2]{
   \def\@teamname{#1}
   \def\@teammember{#2}
 }
+
 \newcommand{\contest}[2]{
   \def\@contestname{#1}
   \def\@contestdate{#2}
 }
-\newcommand{\maketitlepage}{
+
+\renewcommand{\maketitle}{
   \begin{titlepage}
     \vspace*{0.15\textheight}
     \begin{center}
@@ -99,23 +65,136 @@
     \end{center}
   \end{titlepage}
 }
-% for bitwise operations
-\newcommand*\bitand{\mathbin{\&}}
-\newcommand*\bitor{\mathbin{|}}
-\newcommand*\bitxor{\mathbin{\oplus}}
-\newcommand*\sll{\ll} % shift left logical
-\newcommand*\srl{\gg} % shift right logical
-\newcommand*\bitneg{\ensuremath{\mathord{\sim}}}
 
-\newcommand{\negzeroinput}[1]{
+% header and footer
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{\@universityname}
+\fancyhead[R]{Page \thepage\ of \pageref{LastPage}}
+\fancyfoot{} % clear all footer fields
+% \fancyfoot[C]{\@teamname}
+\setlength{\headsep}{6pt}
+\setlength{\footskip}{6pt}
+
+% adjust spaces of titles
+\titlespacing\section{0pt}{6pt}{6pt}
+\titlespacing\subsection{0pt}{0pt}{6pt}
+\titlespacing\subsubsection{0pt}{0pt}{4pt}
+
+% decrease line height
+\renewcommand{\baselinestretch}{0.8}
+
+% include chapter command
+\newcommand{\negzeroimport}[1]{
   \def\@chapterdir{src/#1}
   \input{\@chapterdir/chapter.tex}
 }
 
-% \negzeroinclude{file_name} for c++.
-% \negzeroinclude[]{file_name} for raw text.
-% \negzeroinclude[lang]{file_name} for other languages.
-\newcommand{\negzeroinclude}[2][c++]{
-  \def\@filepath{\@chapterdir/#2}
-  \lstinputlisting[language=#1]{\@filepath}
+% lstlistings
+\newcommand{\codesize}{\fontsize{8}{8}\selectfont}
+\newboolean{codecolor}
+\setboolean{codecolor}{true} % set to `false` to disable color in codes
+\lstset{
+  basicstyle=\ttfamily\codesize,
+  commentstyle=\itshape\ttfamily\codesize,
+  stringstyle=\ifthenelse{\boolean{codecolor}}{\color{mpurple}}{},
+  keywordstyle=\bfseries\ifthenelse{\boolean{codecolor}}{\color{mblue}}{},
+  inputencoding=utf8,
+  tabsize=2,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  numbersep=6pt,
+  breaklines=true,
+  breakatwhitespace=true,
+  keepspaces=true,
+  aboveskip=1.5pt,
+  belowskip=6pt,
+}
+
+% custom caption for lstlistings
+\newcommand{\codedocstr}[2]{
+  {\par\noindent\codesize\textbf{#1:} #2}
+}
+
+\newcommand{\codemetadata}[1]{
+  \vspace{-2pt}
+  {\par\fontsize{7.5}{7.5}\selectfont\emph{\hfill#1}}
+}
+
+% make caption
+\newboolean{hasdesc}
+\newboolean{hasnote}
+\newboolean{hasusage}
+\newboolean{hastime}
+\newboolean{hasspace}
+\newboolean{hasfilemetadata}
+
+\newcommand{\defdesc}[1]{
+  \def\@docstrdesc{#1}
+  \setboolean{hasdesc}{true}
+}
+
+\newcommand{\defnote}[1]{
+  \def\@docstrnote{#1}
+  \setboolean{hasnote}{true}
+}
+
+\newcommand{\defusage}[1]{
+  \def\@docstrusage{#1}
+  \setboolean{hasusage}{true}
+}
+
+\newcommand{\deftime}[1]{
+  \def\@docstrtime{#1}
+  \setboolean{hastime}{true}
+}
+
+\newcommand{\defspace}[1]{
+  \def\@docstrspace{#1}
+  \setboolean{hasspace}{true}
+}
+
+\newcommand{\deffilemetadata}[1]{
+  \def\@filemetadata{#1}
+  \setboolean{hasfilemetadata}{true}
+}
+
+% \@makecaption will be automatically called when using caption in lstlistings,
+% e.g. \begin{lstlisting}[caption={...}]
+\long\def\@makecaption#1#2{
+  \ifthenelse{\boolean{hasdesc}}{\codedocstr{Description}{\@docstrdesc}}{}
+  \ifthenelse{\boolean{hasnote}}{\codedocstr{Note}{\@docstrnote}}{}
+  \ifthenelse{\boolean{hasusage}}{\codedocstr{Usage}{\@docstrusage}}{}
+  \ifthenelse{\boolean{hastime}}{\codedocstr{Time}{\@docstrtime}}{}
+  \ifthenelse{\boolean{hasspace}}{\codedocstr{Space}{\@docstrspace}}{}
+  \ifthenelse{\boolean{hasfilemetadata}}{\codemetadata{\@filemetadata}}{}
+  \vspace{1pt}\hrule\vspace{3pt}
+}
+
+\def\@builddir{build}
+\newcommand{\negzeroincludecode}[1]{
+  \def\@tmpfile{\@builddir/#1.tmp}
+  \setboolean{hasdesc}{false}
+  \setboolean{hasnote}{false}
+  \setboolean{hasusage}{false}
+  \setboolean{hastime}{false}
+  \setboolean{hasspace}{false}
+  \setboolean{hasfilemetadata}{false}
+  \immediate\write18{rm -f \@tmpfile}
+  \immediate\write18{python3 scripts/code_preprocessor.py \@chapterdir/#1 --output \@tmpfile}
+  \input{\@tmpfile}
+}
+
+% bitwise operations
+\newcommand*{\bitand}{\mathbin{\&}} % &
+\newcommand*{\bitor}{\mathbin{|}} % |
+\newcommand*{\bitxor}{\mathbin{\oplus}} % ^
+\newcommand*{\sll}{\ll} % shift left logical <<
+\newcommand*{\srl}{\gg} % shift right logical >>
+\newcommand*{\bitneg}{\ensuremath{\mathord{\sim}}} % ~
+
+% error handler
+\newcommand{\negzeroerror}[2][\@empty]{
+  \PackageError{negzeropkg}{#1}{#2}
 }
