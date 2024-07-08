@@ -2,6 +2,7 @@
 
 \usepackage{amsmath, amsfonts, amsthm, amssymb, amsbsy}
 \usepackage{hyperref}
+\usepackage{enumitem}
 \usepackage[utf8]{inputenc}
 \usepackage{listings} % lstlistings package for displaying code
 \usepackage{xcolor}
@@ -88,6 +89,14 @@
 \newcommand{\negzeroimport}[1]{
   \def\@chapterdir{src/#1}
   \input{\@chapterdir/chapter.tex}
+}
+
+% custom enumerate
+\newlist{usagelist}{itemize}{10}
+\setlist[usagelist]{
+  label=$\bullet$,
+  left=0pt,
+  nosep,
 }
 
 % lstlistings

@@ -107,7 +107,7 @@ def process_file(input: str, output: str, lang: Lang) -> None:
                     categories[prev_category].append(line)
             idx += 1
 
-        # wrap lists with \begin{itemize}...\end{itemize}
+        # wrap items (i.e. start with - or +) with list
         for category, lines in categories.items():
             new_lines = []
             i = 0
@@ -115,13 +115,13 @@ def process_file(input: str, output: str, lang: Lang) -> None:
                 line = lines[i]
                 if line.startswith(('-', '+')):
                     items = []
-                    items.append(r'\begin{itemize}')
+                    items.append(r'\begin{usagelist}')
                     while i < len(lines) and lines[i].startswith(('-', '+')):
                         cur_line = lines[i]
                         cur_line = cur_line[1:].lstrip()
                         items.append(rf'\item {cur_line}')
                         i += 1
-                    items.append(r'\end{itemize}')
+                    items.append(r'\end{usagelist}')
                     new_lines.append('\n'.join(items))
                 else:
                     new_lines.append(line)
