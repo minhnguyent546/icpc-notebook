@@ -1,10 +1,11 @@
 /**
  * Description: Bareiss algorithm for computing determinant of a square matrix A
- *   with integer entries using only integer arithmetic.
- * Time complexity: O(N^3).
+ * with integer entries using only integer arithmetic.
+ * Time: $O(N^3)$.
  * Usage:
  *   - Kirchhoff's theorem: finding the number of spanning trees.
  */
+
 long long determinant(vector<vector<long long>> A) {
     int n = (int) A.size();
     long long prev = 1;

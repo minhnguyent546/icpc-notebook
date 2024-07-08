@@ -1,6 +1,8 @@
-/** Description: Finding the k-th smallest shortest path from vertex s to vertex t,
+/**
+ * Description: finding the k-th smallest shortest path from vertex s to vertex t,
  * each vertex can be visited more than once.
  */
+
 using adj_list = vector<vector<pair<int, int>>>;
 vector<long long> k_smallest(const adj_list &g, int k, int s, int t) {
     int n = (int) g.size();

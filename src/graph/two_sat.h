@@ -1,13 +1,13 @@
 /**
  * Description: finds a way to assign values to boolean variables a, b, c,..
- *   of a 2-SAT problem (each clause has at most two variables) so that
- *   the following formula becomes true: (a | b) & (~a | c) & (b | ~c)...
- * Time complexity: O(V + E) where V is the number of boolean variables
- *   and E is the number of clauses.
+ * of a 2-SAT problem (each clause has at most two variables) so that
+ * the following formula becomes true: $(a \bitor b) \bitand (\bitneg a \bitor c) \bitand (b \bitor \bitneg c) \ldots$
+ * Time: $O(V + E)$ where $V$ is the number of boolean variables
+ * and $E$ is the number of clauses.
  * Usage:
- *   TwoSat twosat(number of boolean variables);
- *   twosat.either(a, ~b); // a is true or b is false
- *   twosat.solve(); // return true iff the above formula is satisfiable
+ *   - TwoSat twosat(number of boolean variables);
+ *   - twosat.either(a, \textasciitilde b); // a is true or b is false
+ *   - twosat.solve(); // return true iff the above formula is satisfiable
  */
 
 struct TwoSat {

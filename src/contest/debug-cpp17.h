@@ -1,8 +1,6 @@
 
 /**
- * C++ debug template for competitive programming
- * requires: c++17
- * does not support: arrays (e.g. int arr[N], vector<int> dp[N]).
+ * Description: c++17 debug template, does not support: arrays (e.g. int arr[N], vector<int> dp[N]).
  */
 
 template<typename T, typename G>
@@ -95,9 +93,7 @@ ostream& operator<<(ostream &os, bitset<N> bs) {
     return os;
 }
 
-/**
- * https://en.cppreference.com/w/cpp/utility/integer_sequence
- */
+// https://en.cppreference.com/w/cpp/utility/integer_sequence
 template<typename Tup, size_t... Is>
 void print_tuple_impl(ostream &os, const Tup &tup, index_sequence<Is...>) {
     ((os << (Is == 0 ? "" : ", ") << get<Is>(tup)),...);
@@ -110,9 +106,7 @@ ostream &operator<<(ostream &os, tuple<Ts...> tup) {
     return os << ")";
 }
 
-/**
- * https://codeforces.com/blog/entry/125435
- */
+// https://codeforces.com/blog/entry/125435
 template<typename H, typename... T>
 void debug(const char *names, H &&head, T &&...tail) {
     int i = 0;

@@ -1,10 +1,12 @@
 /**
- * Description: A topological sort of a directed acyclic graph
- *  is a linear ordering of its vertices such that for every directed edge
- *  from vertex u to vertex v, u comes before v in the ordering.
- * Note: If there are cycles, the returned list will have size smaller than n (i.e, topo.size() < n). 
+ * Description: a topological sort of a directed acyclic graph is a
+ * linear ordering of its vertices such that for every directed edge
+ * from vertex u to vertex v, u comes before v in the ordering.
+ * Note: if there are cycles, the returned list will have size smaller than n.
+ * Time: $O(V + E)$.
  * Tested: https://judge.yosupo.jp/problem/scc
  */
+
 vector<int> topo_sort(const vector<vector<int>> &g) {
     int n = (int) g.size();
     vector<int> indeg(n);

@@ -1,3 +1,7 @@
+/**
+ * Source: tourist.
+ */
+
 struct Hash61 {
     static const uint64_t MOD = (1LL << 61) - 1;
     static uint64_t BASE;

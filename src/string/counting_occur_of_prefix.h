@@ -1,3 +1,8 @@
+/**
+ * Description: count the number of occurrences of each prefix in the given string.
+ * Time: $O(n)$.
+ */
+
 #include "prefix_function.h"
 vector<int> count_occurrences(const string &s) {
     vector<int> pi = prefix_function(s);

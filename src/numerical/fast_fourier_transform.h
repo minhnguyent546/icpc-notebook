@@ -1,3 +1,8 @@
+/**
+ * Description: a fast algorithm for multiplying two polynomials.
+ * Time: $O(N\log{N})$.
+ */
+
 const double PI = acos(-1);
 using Comp = complex<double>;
 int reverse_bit(int n, int lg) {

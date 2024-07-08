@@ -1,3 +1,7 @@
+/**
+ * Description: computes the number of divisors for each number in range [L, R].
+ */
+
 const int MAXN = (int) 1e6; // R - L + 1 <= N.
 int divisor_count[MAXN + 3];
 void segment_divisor_sieve(long long L, long long R) {

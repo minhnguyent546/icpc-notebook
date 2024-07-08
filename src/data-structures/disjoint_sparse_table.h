@@ -1,8 +1,9 @@
 /**
  * Description: range query on a static array. 
- * Time: O(1) per query. 
- * Tested: stress-test.
+ * Time: $O(1)$ per query.
+ * Status: stress-tested.
  */
+
 const int MOD = (int) 1e9 + 7;
 struct DisjointSparseTable { // product queries. 
     int n, h;

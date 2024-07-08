@@ -1,9 +1,10 @@
 /**
- * Hierholzer's algorithm.
- * Description: An Eulerian path in a undirected graph is a path that visits all edges exactly once.
- *  An Eulerian cycle is a Eulerian path that is a cycle.
- * Time complexity: O(|E|). 
+ * Description: Hierholzer's algorithm. An Eulerian path in a undirected graph
+ * is a path that visits all edges exactly once. An Eulerian cycle
+ * is a Eulerian path that is a cycle.
+ * Time: $O(E)$.
  */
+
 struct Edge {
     int to;
     list<Edge>::iterator reverse_edge;

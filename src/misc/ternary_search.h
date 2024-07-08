@@ -1,9 +1,10 @@
 /**
- * Description: given an unimodal function f(x), find the maximum/minimum of f(x).
- * Unimodal means The function strictly increases/decreases first,
+ * Description: given an unimodal function $f(x)$, find the maximum/minimum of $f(x)$.
+ * Unimodal means the function strictly increases/decreases first,
  * reaches a maximum/minimum (at a single point or over an interval),
  * and then strictly decreases/increases.
  */
+
 const double eps = 1e-9;
 template<typename T>
 inline T func(T x) { return x * x; }

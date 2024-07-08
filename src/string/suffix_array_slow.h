@@ -1,7 +1,8 @@
 /**
- * Description: an easier way to implement suffix array but run slower
- * Time: O(N * logN^2)
+ * Description: an easier and shorter implementation of suffix array but run a bit slower.
+ * Time: $O(N\log^2{N})$.
  */
+
 struct SuffixArraySlow {
     string s;
     int n;

@@ -1,6 +1,7 @@
 /**
  * Description: range update and range sum query on a 2D array.
  */
+
 using tree_type = long long;
 struct FenwickTree2D {
     int n, m;

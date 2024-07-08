@@ -1,13 +1,13 @@
 /**
  * Description: suffix array is a sorted array of all the suffixes of a given string.
  * Usage:
- *   sa[i] = starting index of the i-th smallest suffix.
- *   rank[i] = rank of the suffix starting at `i`.
- *   lcp[i] = longest common prefix between `sa[i - 1]` and `sa[i]`
- *   for arbitrary `u v`, let i = rank[u] - 1, j = rank[v] - 1 (assume i < j), then:
- *     longest_common_prefix(u, v) = min(lcp[i + 1], lcp[i + 2], ..., lcp[j])
- * Time: O(NlogN).
+ * - sa[i] = starting index of the i-th smallest suffix.
+ * - rank[i] = rank of the suffix starting at `i`.
+ * - lcp[i] = longest common prefix between `sa[i - 1]` and `sa[i]`
+ * - for arbitrary `u v`, let i = rank[u] - 1, j = rank[v] - 1 (assume i < j), then longest\_common\_prefix(u, v) = min(lcp[i + 1], lcp[i + 2], ..., lcp[j])
+ * Time: $O(N\log{N})$.
  */
+
 struct SuffixArray {
     string s;
     int n, lim;

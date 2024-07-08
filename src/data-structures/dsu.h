@@ -8,7 +8,7 @@ struct Dsu {
     }
     int find(int v) {
         // finding leader/parrent of set that contains the element v.
-        // with {path compression optimization}.    
+        // with {path compression optimization}.
         return (v == par[v] ? v : par[v] = find(par[v]));
     }
     bool same(int u, int v) {
@@ -19,7 +19,7 @@ struct Dsu {
         if (u == v) return false;
         if (sz[u] < sz[v]) swap(u, v);
         par[v] = u;
-        sz[u] += sz[v]; 
+        sz[u] += sz[v];
         return true;
     }
     vector<vector<int>> groups() {

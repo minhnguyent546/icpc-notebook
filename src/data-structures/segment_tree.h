@@ -4,6 +4,7 @@
  *  + Set each value in range [l, r] to x (i.e. a[i] = x).
  *  + Determine the sum of values in range [l, r].  
  */
+
 struct SegmentTree {
     int n;
     vector<long long> tree, lazy_add, lazy_set;

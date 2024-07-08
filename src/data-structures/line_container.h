@@ -1,7 +1,8 @@
 /**
- *  Source: kactl
- *  Description: container that allow you can add lines in form `ax + b` and query maximum value at `x`.
- **/
+ * Source: kactl.
+ * Description: container that allow you can add lines in form $ax + b$ and query maximum value at $x$.
+ */
+
 using num_t = int;
 struct Line {
     num_t a, b; // ax + b

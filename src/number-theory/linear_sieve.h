@@ -1,5 +1,6 @@
 /**
- * Description: Finding primes and computing value for multiplicative function in O(N)
+ * Description: finding primes and computing value for multiplicative function in $O(N)$.
+ * Time: $O(N)$ (but the factor may be large).
  */
 
 const int N = (int) 1e6;

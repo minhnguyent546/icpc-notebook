@@ -1,3 +1,9 @@
+/**
+ * Description: Pollard's rho is an efficient algorithm for integer factorization.
+ * The algorithm can run smoothly with $n$ upto $10^{18}$, but be careful with overflow
+ * for larger $n$ (e.g. $10^{19}$).
+ */
+
 using num_t = long long;
 const int PRIME_MAX = (int) 4e4; // for handle numbers <= 1e9.
 const int LIMIT = (int) 1e9;

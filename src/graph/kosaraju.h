@@ -1,10 +1,12 @@
 /**
  * Description: Kosaraju's algorithm finds strongly connected components (SCC)
- *   in a directed graph in a straightforward way. Two vertices u and v
- *   belong to the same component iff scc_id[u] == scc_id[v]. This algorithm
- *   generates connected components numbered in topological order in
- *   corresponding condensation graph.
+ * in a directed graph in a straightforward way. Two vertices u and v
+ * belong to the same component iff scc\_id[u] == scc\_id[v]. This algorithm
+ * generates connected components numbered in topological order in
+ * corresponding condensation graph.
+ * Time: $O(V + E)$.
  */
+
 const int N = (int) 1e5;
 vector<int> g[N], rev_g[N], vers;
 int scc_id[N];

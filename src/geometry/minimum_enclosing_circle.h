@@ -1,10 +1,9 @@
 /**
- * Description: computes the minimum Circle that encloses all the given Points. 
+ * Description: computes the minimum circle that encloses all the given points.
  */
 
 #include "point.h"
-// #include "circle.h" 
-// TODO: 
+// TODO: make it compatible with circle.h
 
 Point center_from(double bx, double by, double cx, double cy) {
     double B = bx * bx + by * by, C = cx * cx + cy * cy, D = bx * cy - by * cx;

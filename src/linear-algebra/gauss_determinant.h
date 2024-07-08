@@ -1,9 +1,10 @@
 /**
  * Description: computing determinant of a square matrix A by applying
- *   Gauss elimination to produces a row echolon matrix B, then the
- *   determinant of A is equal to product of the elements of the diagonal of B.
- * Time complexity: O(N^3).
+ * Gauss elimination to produces a row echolon matrix B, then the
+ * determinant of A is equal to product of the elements of the diagonal of B.
+ * Time: $O(N^3)$.
  */
+
 const double EPS = 1e-9;
 double determinant(vector<vector<double>> A) {
     int n = (int) A.size();

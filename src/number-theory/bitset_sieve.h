@@ -1,9 +1,10 @@
 /**
- * Description: sieve of eratosthenes for large n (up to 1e9).
- * Time and space (tested on codeforces): 
- *  + For n = 1e8: ~200 ms, 6 MB.
- *  + For n = 1e9: ~4000 ms, 60 MB. 
+ * Description: sieve of eratosthenes for large n (up to $10^9$).
+ * Time: time and space tested on codeforces:
+ *   + For $n = 10^8$: ~200 ms, 6 MB.
+ *   + For $n = 10^9$: ~4000 ms, 60 MB.
  */
+
 const int N = (int) 1e8;
 bitset<N / 2 + 1> isPrime;
 void sieve(int n = N) {

@@ -1,8 +1,9 @@
 /**
  * Description: single source shortest path in a weighted (negative or positive) directed graph. 
- * Time: O(N * M).
+ * Time: $O(VE)$.
  * Tested: https://open.kattis.com/problems/shortestpath3
  */
+
 const int64_t INF = (int64_t) 2e18;
 struct Edge {
     int u, v; // u -> v

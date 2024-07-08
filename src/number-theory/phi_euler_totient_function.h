@@ -1,3 +1,7 @@
+/**
+ * Time: $O(N\log{N})$.
+ */
+
 const int MAXN = (int) 2e5;
 int etf[MAXN + 1];
 void sieve(int n) {                                                                                                          
@@ -11,5 +15,4 @@ void sieve(int n) {
             }
         }
     }
-    // Time complexity: O(NlogN).
 }

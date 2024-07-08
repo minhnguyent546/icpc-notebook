@@ -1,10 +1,11 @@
 /**
  * Description: for each position, computes d[0][i] = half length of 
- longest palindrome centered on i (rounded up), d[1][i] = half length of 
- longest palindrome centered on i and i - 1.
- * Time complexity: O(N). 
- * Tested: https://judge.yosupo.jp/problem/enumerate_palindromes, stress-tested. 
+ * longest palindrome centered on i (rounded up), d[1][i] = half length of
+ * longest palindrome centered on i and i - 1.
+ * Time: $O(N)$.
+ * Status: tested on https://judge.yosupo.jp/problem/enumerate_palindromes, stress-tested.
  */
+
 array<vector<int>, 2> manacher(const string &s) {
     int n = (int) s.size();
     array<vector<int>, 2> d;

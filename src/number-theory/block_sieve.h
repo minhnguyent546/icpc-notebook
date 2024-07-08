@@ -1,11 +1,11 @@
 /**
- * Description: very fast sieve of eratosthenes for large n (up to 1e9).
- * Source: kactl. 
- * Time and space (tested on codeforces):
- *  + For n = 1e8: ~160 ms, 60 MB.
- *  + For n = 1e9: ~1600 ms, 505 MB.
- * Need to check memory limit. 
+ * Source: kactl.
+ * Description: a very fast sieve of eratosthenes for large n (up to $10^9$).
+ * Time: time and space tested on codeforces:
+ *   + For $n = 10^8$: ~160 ms, 60 MB.
+ *   + For $n = 10^9$: ~1600 ms, 505 MB.
  */
+
 const int N = (int) 1e8;
 bitset<N + 1> is_prime;
 vector<int> fast_sieve() {

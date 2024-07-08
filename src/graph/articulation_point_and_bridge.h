@@ -1,7 +1,9 @@
 /**
  * Description: finding articulation points and bridges in a simple undirected graph. 
+ * Time: $O(V + E)$.
  * Tested: https://oj.vnoi.info/problem/graph_
  */
+
 const int N = (int) 1e5;
 vector<int> g[N];
 int num[N], low[N], dfs_timer;

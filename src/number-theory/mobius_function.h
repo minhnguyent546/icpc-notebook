@@ -1,9 +1,7 @@
-/*
-+ For a positive integer N = p1^k1 * p2^k2 * ... * px^kx.
-+ mu(1) = 1.
-+ mu(N) = 0, if there is exist i such that ki > 1.
-+ mu(N) = (-1)^x, otherwise.
-*/
+/**
+ * Time: $O(N\log{N})$.
+ */
+
 const int MAXN = (int) 2e5;
 int mu[MAXN + 1];
 void sieve(int n) {
@@ -13,5 +11,4 @@ void sieve(int n) {
             mu[j] -= mu[i];
         }
     }
-    // Time complexity: O(Nlog(N)).
 }

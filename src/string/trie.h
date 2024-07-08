@@ -1,3 +1,10 @@
+/**
+ * Description: a rooted tree in which each edge is labeled with a character.
+ * Usage:
+ *   - Check if a string exists in the set of strings.
+ * Time: $O(N)$ for each operation where $N$ is the length of the string.
+ */
+
 struct Trie {
     const static int ALPHABET = 26;
     const static char minChar = 'a';

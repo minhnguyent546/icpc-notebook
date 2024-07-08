@@ -1,7 +1,9 @@
 /**
- * Description: An optimized brute-force approach to deal with problem that has operation of setting an interval to the same number.
- * Note: caution TLE, only works when input is random
+ * Description: An optimized brute-force approach to deal with problems
+ * that have operation of setting an interval to the same number.
+ * Note: only works when inputs are random, otherwise it will TLE.
  */
+
 struct ODT {
     map<int, long long> tree;
     using It = map<int, long long>::iterator;

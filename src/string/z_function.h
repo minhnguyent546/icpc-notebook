@@ -1,6 +1,7 @@
 /**
  * Description: for a given string `s`, z[i] = longest common prefix of `s` and suffix starting at `i`.
- *   z[0] is generally not well defined (this implementation below assume z[0] = 0).
+ * z[0] is generally not well defined (this implementation below assume z[0] = 0).
+ * Time: $O(n)$.
  */
 
 vector<int> z_function(const string &s) {
