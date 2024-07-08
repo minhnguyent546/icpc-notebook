@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
 CPP_VERSION="c++17"
-COMPILE_FLAGS="-Wall -Wextra -Wshadow -fmax-errors=3 -DLOCAL"
+COMPILE_FLAGS="-Wall -Wextra -Wshadow -fmax-errors=3"
 
 COLOR_OFF='\033[0m'
 BMAGENTA='\033[1;35m'
