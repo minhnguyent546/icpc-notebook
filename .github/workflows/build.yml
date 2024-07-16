@@ -1,0 +1,22 @@
+name: Compile cpp header files and build notebook
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up git repository
+      uses: actions/checkout@v4
+    - name: Check syntax in cpp header files
+      run: make compileall
+    - name: Build notebook
+      uses: xu-cheng/texlive-action@v2
+      with:
+        texlive_version: 2023
+        scheme: full
+        run: make negzero
