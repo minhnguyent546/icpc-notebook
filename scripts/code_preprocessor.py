@@ -68,7 +68,10 @@ def wrap_big_o_notation(text: str) -> str:
     return text
 
 def process_file(input: str, output: str, lang: Lang) -> None:
-    known_categories = ['Description', 'Note', 'Usage', 'Time', 'Space', 'Source', 'Status', 'Tested']
+    known_categories = [
+        'Description', 'Note', 'Usage', 'Time', 'Space', 'Source', 'Status',
+        'Tested', 'Author', 'License', 'Date',
+    ]
     basename = os.path.basename(input)
     os.makedirs(os.path.dirname(output), exist_ok=True)
     with open(input, 'r', encoding='utf8') as f:

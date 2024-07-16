@@ -1,5 +1,4 @@
-contest/debug.h
 contest/template.h
 data-structures/sparse_table.h
-string/min_rotation.h
 misc/dutch_flag_national_problem.h
+geometry/minimum_enclosing_circle.h

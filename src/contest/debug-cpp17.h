@@ -3,6 +3,8 @@
  * Description: c++17 debug template, does not support: arrays (e.g. int arr[N], vector<int> dp[N]).
  */
 
+#undef debug
+
 template<typename T, typename G>
 ostream& operator<<(ostream &os, pair<T, G> p);
 

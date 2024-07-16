@@ -1,3 +1,5 @@
+#undef debug
+
 template<typename T, typename G> ostream& operator<<(ostream &os, const pair<T, G> &p) {
     return os << "(" << p.first << ", " << p.second << ")";
 }
