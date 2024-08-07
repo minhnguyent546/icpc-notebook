@@ -50,7 +50,7 @@ struct SegmentTree {
             if (set_value) {
                 tree[id] = 1LL * amount * (r - l + 1);
                 lazy_set[id] = amount;
-                lazy_add[id] = 0; // clear all previous updates. 
+                lazy_add[id] = 0; // clear all previous updates.
             }
             else {
                 tree[id] += 1LL * amount * (r - l + 1);
