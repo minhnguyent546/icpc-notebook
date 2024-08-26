@@ -3,7 +3,9 @@
 import argparse
 import os
 import re
+import subprocess
 from enum import Enum
+from typing import List
 
 
 class Lang(Enum):
@@ -67,7 +69,18 @@ def wrap_big_o_notation(text: str) -> str:
 
     return text
 
-def process_file(input: str, output: str, lang: Lang) -> None:
+def run_clang_format(input_file: str, source: List[str]) -> List[str]:
+    if not source:
+        return source
+    content = '\n'.join(source)
+    try:
+        proc = subprocess.run(['clang-format'], check=True, input=content, text=True, capture_output=True)
+    except subprocess.CalledProcessError as e:
+        print(f'Unable to format file {input_file}, ignoring formatting: {e.stderr}')
+        return source
+    return proc.stdout.splitlines()
+
+def process_file(input: str, output: str, lang: Lang, clang_format: bool) -> None:
     known_categories = [
         'Description', 'Note', 'Usage', 'Time', 'Space', 'Source', 'Status',
         'Tested', 'Author', 'License', 'Date',
@@ -139,7 +152,8 @@ def process_file(input: str, output: str, lang: Lang) -> None:
     else:
         output_content = []
         source = strip_empty_lines(source)
-
+        if clang_format and lang == Lang.CPP:
+            source = run_clang_format(input, source)
         # remove empty string
         for category in categories:
             categories[category] = [line for line in categories[category] if line]
@@ -182,6 +196,11 @@ def add_opts(parser: argparse.ArgumentParser) -> None:
         help='Language of the input file',
         type=str,
     )
+    parser.add_argument(
+        '--clang-format',
+        help='Run clang-format command on header files',
+        action='store_true',
+    )
 
 def strip_empty_lines(lines: list[str], strip_left: bool = True, strip_right: bool = True) -> list[str]:
     length = len(lines)
@@ -214,7 +233,7 @@ def main():
         ext = ext[1:]
         args.lang = ext
     lang = get_lang(args.lang)
-    process_file(args.input, args.output, lang)
+    process_file(args.input, args.output, lang, args.clang_format)
 
 
 if __name__ == '__main__':

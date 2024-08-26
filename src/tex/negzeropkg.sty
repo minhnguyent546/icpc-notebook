@@ -14,7 +14,7 @@
 \usepackage{import}
 \usepackage{graphicx} % inserting images
 \usepackage{wrapfig} % wrapping text around figures
-\usepackage[top=1.5cm, right=0.75cm, bottom=0.25cm, left=1.0cm]{geometry}
+\usepackage[top=1.5cm, right=0.75cm, bottom=0.25cm, left=0.75cm]{geometry}
 \usepackage{diagbox}
 \usepackage[skip=6pt]{parskip}
 \usepackage[toc]{multitoc}
@@ -25,7 +25,7 @@
 
 % multicols
 \setlength{\columnseprule}{0.5pt} % multicols separation line with
-\setlength{\columnsep}{26pt} % multicols separation margin
+\setlength{\columnsep}{12pt} % multicols separation margin
 
 % colors
 \definecolor{mgreen}{RGB}{0,153,0}
@@ -100,9 +100,9 @@
 }
 
 % lstlistings
-\newcommand{\codesize}{\fontsize{8}{8}\selectfont}
+\newcommand{\codesize}{\fontsize{7.5}{7.5}\selectfont}
 \newboolean{codecolor}
-\setboolean{codecolor}{true} % set to `false` to disable color in codes
+\setboolean{codecolor}{false} % set to `false` to disable color in codes
 \lstset{
   basicstyle=\ttfamily\codesize,
   commentstyle=\itshape\ttfamily\codesize,
@@ -111,9 +111,6 @@
   inputencoding=utf8,
   tabsize=2,
   showstringspaces=false,
-  numbers=left,
-  numberstyle=\tiny,
-  numbersep=6pt,
   breaklines=true,
   breakatwhitespace=true,
   keepspaces=true,
@@ -181,6 +178,8 @@
   \vspace{1pt}\hrule\vspace{3pt}
 }
 
+\newboolean{clangformat}
+\setboolean{clangformat}{false}
 \def\@builddir{build}
 \newcommand{\negzeroincludecode}[1]{
   \def\@tmpfile{\@builddir/#1.tmp}
@@ -191,7 +190,11 @@
   \setboolean{hasspace}{false}
   \setboolean{hasfilemetadata}{false}
   \immediate\write18{rm -f \@tmpfile}
-  \immediate\write18{python3 scripts/code_preprocessor.py \@chapterdir/#1 --output \@tmpfile}
+  \ifthenelse{\boolean{clangformat}}{
+    \immediate\write18{python3 scripts/code_preprocessor.py \@chapterdir/#1 --clang-format --output \@tmpfile}
+  }{
+    \immediate\write18{python3 scripts/code_preprocessor.py \@chapterdir/#1 --output \@tmpfile}
+  }
   \input{\@tmpfile}
 }
 
@@ -206,4 +209,12 @@
 % error handler
 \newcommand{\negzeroerror}[2][\@empty]{
   \PackageError{negzeropkg}{#1}{#2}
+}
+
+\newcommand{\enablecolor}{
+  \setboolean{codecolor}{true}
+}
+
+\newcommand{\enableclangformat}{
+  \setboolean{clangformat}{true}
 }
