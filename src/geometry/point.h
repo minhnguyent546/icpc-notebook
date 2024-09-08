@@ -58,6 +58,7 @@ ftype angle(Point a, Point b) {return acos(dot(a, b) / (abs(a) * abs(b)));}
 ftype proj(Point a, Point b) {return dot(a, b) / abs(b);}
 ftype cross(Point a, Point b) {return a.x * b.y - a.y * b.x;}
 bool ccw(Point a, Point b, Point c) {return cross(b - a, c - a) > EPS;}
+int sign(ftype val) { return (val < -EPS ? -1 : val >= EPS ? 1 : 0); }
 bool collinear(Point a, Point b, Point c) {return fabs(cross(b - a, c - a)) < EPS;}
 Point intersect(Point a1, Point d1, Point a2, Point d2) {
     double t = cross(a2 - a1, d2) / cross(d1, d2);

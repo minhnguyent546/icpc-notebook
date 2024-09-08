@@ -1,17 +1,23 @@
+/**
+ * Description: Andrew's algorithm for computing convex hull of a set of points.
+ * Time: $O(n\log{n})$
+ */
+
 #include "point.h"
 
-vector<Point> CH_Andrew(vector<Point> &Pts) { // overall O(n log n)
-    int n = Pts.size(), k = 0;
-    vector<Point> H(2 * n);
-    sort(Pts.begin(), Pts.end());
+vector<Point> convex_hull(vector<Point> &&points) {
+    int n = (int) points.size(), k = 0;
+    if (n <= 2) return points;
+    vector<Point> ch(n * 2);
+    sort(points.begin(), points.end());
     for (int i = 0; i < n; ++i) {
-        while ((k >= 2) && !ccw(H[k - 2], H[k - 1], Pts[i])) --k;
-        H[k++] = Pts[i];
+        while (k >= 2 && sign(cross(ch[k - 1] - ch[k - 2], points[i] - ch[k - 1])) <= -1) --k;
+        ch[k++] = points[i];
     }
     for (int i = n - 2, t = k + 1; i >= 0; --i) {
-        while ((k >= t) && !ccw(H[k - 2], H[k - 1], Pts[i])) --k;
-        H[k++] = Pts[i];
+        while (k >= t && sign(cross(ch[k - 1] - ch[k - 2], points[i] - ch[k - 1])) <= -1) --k;
+        ch[k++] = points[i];
     }
-    H.resize(k);
-    return H;
+    ch.resize(k - 1);
+    return ch;
 }
