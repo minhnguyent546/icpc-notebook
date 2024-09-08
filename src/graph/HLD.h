@@ -5,13 +5,13 @@ struct HLD { // vertex update and max query on path u -> v
     vector<vector<int>> g;
     SegmentTree seg_tree;
     vector<int> par, top, depth, sz, id;
-    int timer = 0;
+    int timer = 0, root = 0;
     bool VAL_IN_EDGE = false;
     HLD() {}
     HLD(int _n): n(_n), g(n), seg_tree(n), par(n), top(n), depth(n), sz(n), id(n) {}
     void build() {
-        dfs_sz(0);
-        dfs_hld(0);
+        dfs_sz(root);
+        dfs_hld(root);
     }
     void add_edge(int u, int v) {
         g[u].push_back(v);

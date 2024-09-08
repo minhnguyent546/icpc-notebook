@@ -9,7 +9,7 @@ vector<int> g[N];
 int num[N], low[N], dfs_timer;
 bool joint[N];
 vector<pair<int, int>> bridges;
-void dfs(int u, int prev) {
+void dfs(int u, int prev = -1) {
     low[u] = num[u] = ++dfs_timer;
     int child = 0;
     for (int v : g[u]) {
@@ -22,10 +22,10 @@ void dfs(int u, int prev) {
             if (low[v] >= num[v]) {
                 bridges.emplace_back(u, v);
             }
-            if (u != prev && low[v] >= num[u]) joint[u] = true;
+            if (prev != -1 && low[v] >= num[u]) joint[u] = true;
         }
     }
-    if (u == prev && child > 1) joint[u] = true;    
+    if (prev == -1 && child > 1) joint[u] = true;
 }
 
 int solve() {
@@ -39,7 +39,7 @@ int solve() {
         g[v].push_back(u);
     }
     for (int i = 0; i < n; ++i) {
-        if (!num[i]) dfs(i, i);
+        if (!num[i]) dfs(i);
     }
     return 0;
 }
