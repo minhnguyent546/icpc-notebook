@@ -1,7 +1,7 @@
 /**
  * Description: centroid decomposition technique for solving various task in a
  * tree related to all paths/all pairs in tree.
- * Time: O(N log N)
+ * Time: $O(N\log{N})$
  */
 
 const int N = (int) 1e5;
