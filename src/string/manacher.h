@@ -14,7 +14,7 @@ array<vector<int>, 2> manacher(const string &s) {
         int l = 0, r = 0;
         for (int i = 0; i < n; ++i) {
             int mirror = l + r - i + z;
-            d[z][i] = (i > r ? 0 : min(d[z][mirror], r - i));
+            d[z][i] = (i < r ? min(d[z][mirror], r - i) : 0);
             int L = i - d[z][i] - z, R = i + d[z][i];
             while (L >= 0 && R < n && s[L] == s[R]) {
                 d[z][i]++; L--; R++;
