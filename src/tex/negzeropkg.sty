@@ -18,6 +18,7 @@
 \usepackage{diagbox}
 \usepackage[skip=6pt]{parskip}
 \usepackage[toc]{multitoc}
+\usepackage{tabularx}
 
 % TOC
 \setcounter{tocdepth}{3} % TOC depth
@@ -85,6 +86,9 @@
 % decrease line height
 \renewcommand{\baselinestretch}{0.8}
 
+% extra row height for tables
+\setlength{\extrarowheight}{3pt}
+
 % include chapter command
 \newcommand{\negzeroimport}[1]{
   \def\@chapterdir{src/#1}
@@ -105,7 +109,7 @@
 \setboolean{codecolor}{false} % set to `false` to disable color in codes
 \lstset{
   basicstyle=\ttfamily\codesize,
-  commentstyle=\itshape\ttfamily\codesize,
+  commentstyle=\ttfamily\codesize,
   stringstyle=\ifthenelse{\boolean{codecolor}}{\color{mpurple}}{},
   keywordstyle=\bfseries\ifthenelse{\boolean{codecolor}}{\color{mblue}}{},
   inputencoding=utf8,

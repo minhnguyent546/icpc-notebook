@@ -2,17 +2,28 @@
 \subsection{Catalan numbers}
 \[ C_n = \frac{1}{n + 1} {2n \choose n} = \frac{(2n)!}{n!(n+1)!}\]
 \[ C_{n + 1} = \displaystyle\sum_{i = 0}^{n}C_i C_{n - i},\ C_0 = 1,\ C_n = \frac{4n - 2}{n + 1}C_{n - 1}\]
-\begin{itemize}
-  \item The first 12 Catalan numbers ($n = 0, 1, 2, \ldots, 11$):
-  \[ C_n = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786 \]
-  \item Applications of Catalan numbers:
-  \begin{itemize}
-    \item difference binary search trees with $n$ vertices from 1 to $n$.
-    \item rooted binary trees with $n + 1$ leaves (vertices are not numbered).
-    \item correct bracket sequence of length $2 * n$.
-    \item permutation $[n]$ with no 3-term increasing subsequence (i.e. doesn't exist $i < j < k$ for which $a[i] < a[j] < a[k]$).
-    \item ways a convex polygon of $n$ + 2 sides can split into triangles by connecting vertices.
-  \end{itemize}
+
+\begin{center}
+  \begin{tabular}{l}
+    \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+      $n$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ \\
+      \hline
+      $C_n$ & $1$ & $1$ & $2$ & $5$ & $14$ & $42$ & $132$ & $429$ & $1430$ \\
+    \end{tabular} \\
+    \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+      $n$ & $9$ & $10$ & $11$ & $12$ & $13$ \\
+      \hline
+      $C_n$ & $4862$ & $16796$ & $58786$ & $208012$ & $742900$
+    \end{tabular}
+  \end{tabular}
+\end{center}
+Applications of Catalan numbers:
+\begin{itemize}[leftmargin=*]
+  \item difference binary search trees with $n$ vertices from 1 to $n$.
+  \item rooted binary trees with $n + 1$ leaves (vertices are not numbered).
+  \item correct bracket sequence of length $2 * n$.
+  \item permutation $[n]$ with no 3-term increasing subsequence (i.e. doesn't exist $i < j < k$ for which $a[i] < a[j] < a[k]$).
+  \item ways a convex polygon of $n$ + 2 sides can split into triangles by connecting vertices.
 \end{itemize}
 % TODO: Catalan convolution
 
@@ -24,7 +35,7 @@
     F_{n - 1} + F_{n - 2}, & \text{otherwise}
   \end{cases}
 \]
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
   \item The first 20 Fibonacci numbers ($n = 0, 1, 2, \ldots, 19$):
     \[ F_n = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181 \]\
   \item Binet's formula:

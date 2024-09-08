@@ -1,12 +1,12 @@
 \section{Number Theory}
 
 \subsection{Euler's totient function}
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
   \item Euler's totient function, also known as \textbf{phi-function} $\phi(n)$
   counts the number of integers between 1 and $n$ inclusive, that are
   \textbf{coprime to} $n$.
   \item Properties:
-  \begin{itemize}
+  \begin{itemize}[leftmargin=0.25cm]
     \item Divisor sum property: $\sum\limits_{d | n} \phi(d) = n$.
     \item $\phi(n)$ is a \textbf{prime number} when $n$ = 3, 4, 6.
     \item If $p$ is a prime number, then $\phi(p) = p - 1$.
@@ -21,9 +21,13 @@
     \end{align*}
   \end{itemize}
   \item Application in Euler's theorem:
-  \begin{itemize}
-    \item If gcd($a, M$) = 1, then:
-    \[ a^{\phi(M)} \equiv 1 \pmod M \Rightarrow a^{n} \equiv a^{n \bmod \phi(M)} \pmod M \]
+  \begin{itemize}[leftmargin=0.25cm]
+    \item If gcd($a, M$) = 1 (i.e. $a$ and $M$ are comprime), then:
+    \[ a^{\phi(M)} \equiv 1 \pmod M \Rightarrow
+      \begin{cases}
+        a^{n} \equiv a^{n \bmod \phi(M)} \pmod M \\
+        a^{\phi(M) - 1} \equiv a^{-1} \pmod M
+      \end{cases} \]
     \item In general, for arbitrary $a$, $M$ and $n \geq \log_2{M}$:
     \[ a^{n} \equiv a^{\phi(M) + [n \bmod \phi(M)]} \pmod M \]
   \end{itemize}
@@ -31,7 +35,7 @@
   \negzeroincludecode{phi_euler_totient_function.h}
 
 \subsection{Mobius function}
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
   \item For a positive integer $n = p_1^{k_1} \cdot p_2^{k_2} \cdots p_m^{k_m}$:
     \[
     \mu(n) =
@@ -42,10 +46,11 @@
     \end{cases}
     \]
   \item Properties:
-  \begin{itemize}
+  \begin{itemize}[leftmargin=0.25cm]
     \item $\sum\limits_{d | n} \mu(d) = [n = 1]$.
     \item If $a$ and $b$ are \textbf{coprime}, then $\mu(ab) = \mu(a) \cdot \mu(b)$.
     \item Mobius inversion: let $f$ and $g$ be arithmetic functions:
+    \vspace{-0.3cm}
     \[ g(n) = \sum\limits_{d | n} f(d) \Leftrightarrow f(n) = \sum\limits_{d | n} \mu\left(\dfrac{n}{d}\right) g(d) \].
   \end{itemize}
 \end{itemize}
@@ -80,7 +85,7 @@ A positive integer $n$ is a prime if and only if:
 \subsection{Zeckendorf’s theorem}
 The Zeckendorf's theorem states that every positive integer $n$ can be represented uniquely as a sum of one or more
 distinct non-consecutive Fibonacci numbers. For example:
-  \vspace{-0.45cm}
+  \vspace{-0.3cm}
   \begin{align*}
     64 &= 55 + 8 + 1 \\
     85 &= 55 + 21 + 8 + 1
@@ -91,7 +96,7 @@ distinct non-consecutive Fibonacci numbers. For example:
 \subsection{Bitwise operation}
 \begin{multicols}{2}
 \vspace{-\topsep}
-\begin{itemize}
+\begin{itemize}[leftmargin=*]
     \setlength{\parskip}{0pt}
   \setlength{\itemsep}{0pt plus 1pt}
   \item $a + b = (a \bitxor b) + 2(a \bitand b)$
@@ -133,3 +138,6 @@ distinct non-consecutive Fibonacci numbers. For example:
 
 \subsection{Block sieve}
   \negzeroincludecode{block_sieve.h}
+
+\subsection {Sqrt mod}
+  \negzeroincludecode{sqrt_mod.h}
