@@ -1,18 +1,19 @@
 struct Dsu {
     int n;
     vector<int> par, sz;
-    Dsu(int _n) : n(_n) {
-        sz.resize(n, 1);
-        par.resize(n);
-        iota(par.begin(), par.end(), 0);
+    Dsu(int _n) : n(_n), par(n), sz(n) { init(); }
+    void init() {
+        for (int i = 0; i < n; ++i) {
+            par[i] = i, sz[i] = 1;
+        }
     }
     int find(int v) {
         // finding leader/parrent of set that contains the element v.
         // with {path compression optimization}.
-        return (v == par[v] ? v : par[v] = find(par[v]));
-    }
-    bool same(int u, int v) {
-        return find(u) == find(v);
+        while (v != par[v]) {
+            v = par[v] = par[par[v]];
+        }
+        return v;
     }
     bool unite(int u, int v) {
         u = find(u); v = find(v);
@@ -37,7 +38,7 @@ struct Dsu {
         }
         vector<vector<int>> result(count);
         for (int i = 0; i < n; ++i) {
-            result[id[leader[i]]].push_back(i);
+            result[id[leader[i]]].emplace_back(i);
         }
         return result;
     }

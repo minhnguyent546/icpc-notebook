@@ -1,5 +1,6 @@
 /**
- * Description: A segment tree that allows insert a new line and query for minimum value over all lines at point x.
+ * Description: A segment tree that allows inserting a new line and querying
+ * for minimum value over all lines at point x.
  * Usage: useful in convex hull trick.
  */
 

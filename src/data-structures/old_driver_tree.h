@@ -4,6 +4,7 @@
  * Note: only works when inputs are random, otherwise it will TLE.
  */
 
+#include "../number-theory/modmul.h"
 struct ODT {
     map<int, long long> tree;
     using It = map<int, long long>::iterator;
@@ -50,14 +51,13 @@ struct ODT {
         }
         return -1;
     }
-    int powmod(long long a, long long n, int mod);
     int sum_of_xth_power(int l, int r, int x, int mod) {
         It it_l = split(l);
         It it_r = split(r + 1);
         int res = 0;
         while (it_l != it_r) {
             It prev = it_l++;
-            res = (res + 1LL * (it_l->first - prev->first) * powmod(prev->second, x, mod)) % mod;
+            res = (res + 1LL * (it_l->first - prev->first) * modpow(prev->second, x, mod)) % mod;
         }
         return res;
     }
