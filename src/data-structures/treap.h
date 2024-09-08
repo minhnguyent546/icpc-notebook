@@ -1,23 +1,28 @@
+/**
+ * Description: Treap is a type of self-balancing binary search tree.
+ * It is a combination of binary search tree and binary heap. The two main methods
+ * are split and merge. It is easy to implement and augment with additional information.
+ * Time: $O(\log{N})$.
+ */
+
 struct Node {
     int val, prior, cnt;
     bool rev;
     Node *left, *right;
     Node() {}
     Node(int _val): val(_val), prior(rng()), cnt(1), rev(false), left(nullptr), right(nullptr) {}
+    friend int get_cnt(Node *n) { return n ? n->cnt : 0; }
+    void pull() {
+        cnt = get_cnt(left) + 1 + get_cnt(right);
+    }
+    void push() {
+        if (!rev) return;
+        rev = false;
+        swap(left, right);
+        if (left) left->rev ^= 1;
+        if (right) right->rev ^= 1;
+    }
 };
-
-int get_cnt(Node *n) { return n ? n->cnt : 0; }
-void pull(Node *&n) {
-    if (!n) return;
-    n->cnt = get_cnt(n->left) + get_cnt(n->right) + 1;
-}
-void push(Node *treap) {
-    if (!treap || !treap->rev) return;
-    treap->rev = false;
-    swap(treap->left, treap->right);
-    if (treap->left) treap->left->rev ^= true;
-    if (treap->right) treap->right->rev ^= true;
-}
 struct Treap {
     Node *root;
     bool implicit_key;
@@ -33,18 +38,18 @@ struct Treap {
         // normal treap -> Left: all nodes having val <= val
         // implicit treap -> Left: all nodes having index <= pos
         if (!treap) return {};
-        push(treap);
+        treap->push();
         if (go_right(treap, pos_or_val)) {
             if (implicit_key) pos_or_val -= (get_cnt(treap->left) + 1);
             auto pr = split(treap->right, pos_or_val);
             treap->right = pr.first;
-            pull(treap);
+            treap->pull();
             return {treap, pr.second};
         }
         else {
             auto pl = split(treap->left, pos_or_val);
             treap->left = pl.second;
-            pull(treap);
+            treap->pull();
             return {pl.first, treap};
         }
     }
@@ -54,16 +59,17 @@ struct Treap {
         return {l, mid, r};
     }
     Node* merge(Node *l, Node *r) {
-        push(l); push(r);
         if (!l || !r) return (l ? l : r);
         if (l->prior < r->prior) {
+            l->push();
             l->right = merge(l->right, r);
-            pull(l);
+            l->pull();
             return l;
         }
         else {
+            r->push();
             r->left = merge(l, r->left);
-            pull(r);
+            r->pull();
             return r;
         }
     }
@@ -85,6 +91,7 @@ struct Treap {
     }
     int get_kth(Node *treap, int k) {
         if (!treap) return (int) 1e9;
+        treap->push();
         int sz = get_cnt(treap->left) + 1;
         if (sz == k) return treap->val;
         else if (sz < k) {
