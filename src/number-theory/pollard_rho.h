@@ -8,48 +8,44 @@
 #include "modmul.h"
 #include "miller_rabin.h"
 
-using num_t = long long;
-const int PRIME_MAX = (int) 4e4; // for handle numbers <= 1e9.
-const int LIMIT = (int) 1e9;
-
-num_t f(num_t x, int c, num_t mod) { // f(x) = (x^2 + c) % mod.
+uint64_t f(uint64_t x, int c, uint64_t mod) { // f(x) = (x^2 + c) % mod.
     x = modmul(x, x, mod) + c;
     if (x >= mod) x -= mod;
     return x;
 }
-num_t pollard_rho(num_t n, int c) {
+uint64_t pollard_rho(uint64_t n, int c) {
     // algorithm to find a random divisor of `n`.
     // using random function: f(x) = (x^2 + c) % n.
-    num_t x = 2, y = x, d;
+    uint64_t x = 2, y = x, d;
     long long p = 1;
     int dist = 0;
     while (true) {
         y = f(y, c, n);
         dist++;
-        d = __gcd(abs(x - y), n);
+        d = __gcd(max(x, y) - min(x, y), n);
         if (d > 1) break;
         if (dist == p) { dist = 0; p *= 2; x = y; }
     }
     return d;
 }
-void factorize(num_t n, vector<num_t> &factors) {
+void factorize(uint64_t n, vector<uint64_t> &factors) {
     if (n < 2) return;
     if (is_prime(n)) {
         factors.emplace_back(n);
         return;
     }
-    num_t d = n;
+    uint64_t d = n;
     for (int c = 2; d == n; c++) {
         d = pollard_rho(n, c);
     }
     factorize(d, factors); factorize(n / d, factors);
 }
-vector<num_t> gen_divisors(vector<pair<num_t, int>> &factors) {
-    vector<num_t> divisors = {1};
+vector<uint64_t> gen_divisors(vector<pair<uint64_t, int>> &factors) {
+    vector<uint64_t> divisors = {1};
     for (auto &x : factors) {
         int sz = (int) divisors.size();
         for (int i = 0; i < sz; ++i) {
-            num_t cur = divisors[i];
+            uint64_t cur = divisors[i];
             for (int j = 0; j < x.second; ++j) {
                 cur *= x.first;
                 divisors.push_back(cur);
