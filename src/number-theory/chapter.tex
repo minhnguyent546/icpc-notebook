@@ -83,8 +83,9 @@ A positive integer $n$ is a prime if and only if:
 \[ (n - 1)! \equiv n - 1 \pmod n \]
 
 \subsection{Zeckendorf’s theorem}
-The Zeckendorf's theorem states that every positive integer $n$ can be represented uniquely as a sum of one or more
-distinct non-consecutive Fibonacci numbers. For example:
+The Zeckendorf's theorem states that every positive integer $n$ can be represented
+uniquely as a sum of one or more distinct non-consecutive Fibonacci numbers.
+For example:
   \vspace{-0.3cm}
   \begin{align*}
     64 &= 55 + 8 + 1 \\
@@ -92,6 +93,14 @@ distinct non-consecutive Fibonacci numbers. For example:
   \end{align*}
   \vspace{-0.45cm}
   % \negzeroincludecode{zeckendorf_theorem.h}
+
+\subsection{Chicken McNugget theorem}
+The Chicken McNugget theorem states that for any two relatively prime positive integers
+$n, m$, the greatest integer that cannot be written in the form $a \cdot n + b \cdot m$
+for non-negative integers $a, b$ is $n \cdot m - n - m$.
+
+A consequence of the theorem is that there are exactly $\dfrac{(n - 1)(m - 1)}{2}$
+positive integers which cannot be expressed in the form $a \cdot n + b \cdot m$.
 
 \subsection{Bitwise operation}
 \begin{multicols}{2}
@@ -113,10 +122,8 @@ distinct non-consecutive Fibonacci numbers. For example:
 \vspace{-\topsep}
 \end{multicols}
 
-\begin{itemize}
-  \item Iterating over all subsets of a set and iterating over all submasks of a mask:
-\end{itemize}
-  \negzeroincludecode{mask.h}
+Iterating over all subsets of a set and iterating over all submasks of a mask:
+\negzeroincludecode{mask.h}
 
 \subsection{Modmul}
   \negzeroincludecode{modmul.h}
@@ -139,5 +146,5 @@ distinct non-consecutive Fibonacci numbers. For example:
 \subsection{Block sieve}
   \negzeroincludecode{block_sieve.h}
 
-\subsection {Sqrt mod}
+\subsection{Sqrt mod}
   \negzeroincludecode{sqrt_mod.h}
