@@ -1,6 +1,0 @@
-- (DONE) Fenwick tree: range update + range query.
-- Fenwick tree: 2D fenwick tree.
-- Segment tree: 2D segment tree.
-- (DONE) Disjoint sparse table. 
-- Persistent DSU.
-- DSU with rollbacks
