@@ -43,6 +43,9 @@ struct HLD { // vertex update and max query on path u -> v
         // now u, v is in the same heavy-chain
         return (depth[u] < depth[v] ? u : v);
     }
+    int rooted_lca(int a, int b, int c) {
+        return lca(a, b) ^ lca(b, c) ^ lca(c, a);
+    }
     void set_vertex(int v, int x) {
         seg_tree.set(id[v], x);
     }
