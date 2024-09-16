@@ -25,7 +25,7 @@ After updating the source codes, you can verify syntax in header files by runnin
 make compileall
 ```
 
-If compilation times are not displayed properly (e.g. `finished in 0,0s`), try to change locale to `en_US.UTF-8`:
+If the compilation times are not displayed properly (e.g. `finished in 0,0s`), try changing locale to `en_US.UTF-8`:
 ```bash
 LC_NUMERIC=en_US.UTF-8 make compileall
 ```
