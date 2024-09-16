@@ -1,7 +1,7 @@
 #!/usr/bin/env bash 
 
 CPP_VERSION="c++17"
-COMPILE_FLAGS="-Wall -Wextra -Wshadow -fmax-errors=3"
+COMPILE_FLAGS="-Wall -Wextra -Wshadow -Wfloat-equal -fmax-errors=3 -pedantic"
 
 COLOR_OFF='\033[0m'
 BMAGENTA='\033[1;35m'
@@ -43,7 +43,7 @@ for header in "${headers[@]}"; do
   echo "[${header_count}/${header_size}] ${b_header}:"
   header_count+=1
   start_time=$(date +%s%N)
-  ${SCRIPT_DIR}/compile_header.sh "$header"
+  "${SCRIPT_DIR}"/compile_header.sh "$header"
   exitCode=$?
   end_time=$(date +%s%N)
   elapsed=$(echo "($end_time - $start_time) / $NORMAL_TO_NANO" | bc -l)
