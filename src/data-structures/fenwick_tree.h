@@ -29,4 +29,15 @@ struct Fenwick {
     T query(int l, int r) {
         return pref(r) - pref(l - 1);
     }
+    int lower_bound(T val) {
+        int x = 0;
+        T s{};
+        for (int i = 1 << __lg(n); i > 0; i /= 2) {
+            if (i + x - 1 < n && s + tree[x + i - 1] < val) {
+                s += tree[x + i - 1];
+                x += i;
+            }
+        }
+        return x;
+    }
 };
