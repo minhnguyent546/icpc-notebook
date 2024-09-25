@@ -1,0 +1,6 @@
+\subsubsection{Increase stack size}
+
+On Linux, use the command \$ulimit -s 268435456 to increase the stack size to 256MB. On Windows, add option -Wl,--stack=268435456 when compiling with gcc/g++.
+
+\subsubsection{Stress-testing}
+  \negzeroincludecode{stresstest.sh}
