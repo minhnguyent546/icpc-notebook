@@ -33,6 +33,9 @@ struct LCA {
         if (u > v) swap(u, v);
         return rmq.get(u, v).second;
     }
+    bool is_anc(int par, int u) {
+        return lca(par, u) == par;
+    }
     int rooted_lca(int a, int b, int c) {
         return lca(a, b) ^ lca(b, c) ^ lca(c, a);
     }
