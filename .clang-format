@@ -61,7 +61,7 @@ BreakStringLiterals: true
 # BreakFunctionDefinitionParameters: false # requires clang-format 19
 BreakArrays: false
 # BreakTemplateDeclarations: Yes # requires clang-format 19
-ColumnLimit:     56
+ColumnLimit:     60
 CompactNamespaces: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 2
