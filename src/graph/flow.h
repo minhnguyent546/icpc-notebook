@@ -1,55 +1,63 @@
 const int N = (int) 1e3 + 3;
-int64_t capacity[N][N], ans;
-int trace[N];
+const int oo = (int) 1e9;
+int trace[N], c[N][N], f[N][N];
 vector<int> adj[N];
-bool FindWays(int s, int t, int n){
+int n, s, t;
+
+bool FindPath(){
     for (int u = 1; u <= n; ++u) {
         trace[u] = 0;
     }
-    trace[s] = s;
+
     queue<int> q;
     q.push(s);
+    trace[s] = s;
+
     while (!q.empty()){
         int u = q.front();
         q.pop();
-        for (auto v: adj[u]){
-            if (trace[v] == 0 && capacity[u][v] > 0){
+
+        for (int v: adj[u]){
+            if (!trace[v] && c[u][v] > f[u][v]){
                 trace[v] = u;
+                if (v == t){
+                    return 1;
+                }
                 q.push(v);
             }
         }
     }
-    return trace[t];
+    return 0;
 }
-void Update(int s, int t){
-    int u, v = t;
-    int64_t mn = (int64_t) 1e18 + 7;
+
+void Enlarge(){
+    int u, v = t, mn = oo;
     while (v != s){
         u = trace[v];
-        mn = min(mn, capacity[u][v]);
+        mn = min(mn, c[u][v] - f[u][v]);
         v = u;
     }
+
     v = t;
     while (v != s){
         u = trace[v];
-        capacity[u][v] -= mn;
-        capacity[v][u] += mn;
+        f[u][v] += mn;
+        f[v][u] -= mn;
         v = u;
     }
-    ans += mn;
 }
-void solve() {
-    int n, m;
-    cin >> n >> m;
-    for (int i = 1; i <= m; ++i) {
-        int u, v, w;
-        cin >> u >> v >> w;
-        capacity[u][v] += w;
-        adj[u].emplace_back(v), adj[v].emplace_back(u);
+
+int solve() {
+    // Xu ly dau vao
+
+    while (FindPath()){
+        Enlarge();
     }
-    int s = 1, t = n;
-    while (FindWays(s, t, n)){
-        Update(s, t);
+
+    int ans = 0;
+    for (int u = 1; u <= n; ++u) {
+        ans += f[u][t];
     }
-    cout << ans << endl;
+    cout << ans << '\n';
+    return 0;
 }
