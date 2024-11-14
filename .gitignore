@@ -11,3 +11,6 @@
 src/**/*.cpp
 src/**/TODO.txt
 /bak/
+/negzero-test.pdf
+/algo_list.md
+/src/_testing
