@@ -5,7 +5,7 @@
  * Time: $O(N)$.
  */
 
-#include "./modmul.h"
+#include "../modmul.h"
 
 namespace lagrange {
 const int N = (int) 1e6 + 5;
