@@ -5,16 +5,29 @@
  * Time: $O(\log(\min(a, b)))$
  */
 
-template<typename T>
-T extended_euclidean(T a, T b, T &x, T &y) {
-    if (b == 0) {
-        x = 1;
-        y = 0;
-        return a;
+int64_t euclidean(int64_t a, int64_t b) {
+    while (b > 0) {
+        int64_t k = a / b;
+        a -= k * b;
+        swap(a, b);
     }
-    T x1, y1;
-    T d = extended_euclidean(b, a % b, x1, y1);
-    x = y1;
-    y = x1 - y1 * (a / b);
-    return d;
+    return a;
+}
+
+array<int64_t, 3> extended_euclidean(int64_t a, int64_t b) {
+    array<int64_t, 3> x{1, 0, a};
+    array<int64_t, 3> y{0, 1, b};
+    while (y[2] > 0) {
+        int64_t k = x[2] / y[2];
+        for (int i = 0; i < 3; ++i) x[i] -= k * y[i];
+        x.swap(y);
+    }
+    return x; // (x, y, gcd)
+}
+
+int64_t inv(int64_t a, int64_t M) {
+    array<int64_t, 3> x = extended_euclidean(a, M);
+    int64_t ret = x[0] % M;
+    if (ret < 0) ret += M;
+    return ret;
 }
