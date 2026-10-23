@@ -1,13 +1,13 @@
-## CTU.NegativeZero ICPC Notebook
+## ICPC Notebook
 
-This notebook serves as a reference during ICPC contests for our team, CTU.NegativeZero. The structures are inspired by KACTL. Refer to [negzero.pdf](./negzero.pdf) for the latest version of the notebook.
+This notebook serves as a reference during ICPC contests of team `CTU.NegativeZero` and `CTU.stresstesters`. The structures are inspired by KACTL. Refer to [notebook.pdf](./notebook.pdf) for the latest version of the notebook.
 
 ## Setup
 
 Get started by cloning this repository:
 ```bash
-git clone https://github.com/minhnguyent546/icpc-notebook.git ctu-negzero-notebook
-cd ctu-negzero-notebook
+git clone https://github.com/minhnguyent546/icpc-notebook.git minhnguyent546--icpc-notebook
+cd minhnguyent546--icpc-notebook
 ```
 
 In order to build the notebook, you need to have `texlive` and `bc` command installed. On Debian-based systems, you can install it by running:
@@ -32,5 +32,5 @@ LC_NUMERIC=en_US.UTF-8 make compileall
 
 Finally, you can build the notebook using:
 ```bash
-make negzero
+make notebook
 ```

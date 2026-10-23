@@ -5,10 +5,10 @@ LATEX=pdflatex -shell-escape -output-directory $(BUILD_DIR)
 default: help
 
 help:
-	@echo -e "\t\tThis makefile builds NegativeZero team notebook"
+	@echo -e "\t\tThis makefile builds team notebook"
 	@echo "Here are all available commands:"
-	@echo "- make negzero:			to build negzero.pdf file"
-	@echo "- make test:			to build negzero-test.pdf file (for testing)"
+	@echo "- make notebook:		to build notebook.pdf file"
+	@echo "- make test:			to build notebook-test.pdf file (for testing)"
 	@echo "- make compileall: 		to test compiling all headers"
 	@echo "- make findexcluded:		to show headers that are not included"
 	@echo "- make clean:			remove all LaTeX automatically generated files"
@@ -16,24 +16,24 @@ help:
 	@echo "- make clean_all:		remove all LaTeX automatically generated files and tmp files"
 	@echo "- make help: 			to show this information"
 
-.PHONY: default help clean clean_tmp clean_all test negzero compileall findexcluded
+.PHONY: default help clean clean_tmp clean_all test notebook compileall findexcluded
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-negzero: | $(BUILD_DIR)
+notebook: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
-	cp $(BUILD_DIR)/negzero.pdf negzero.pdf
+	cp $(BUILD_DIR)/negzero.pdf notebook.pdf
 
 test: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
-	cp $(BUILD_DIR)/negzero.pdf negzero-test.pdf
-	okular negzero-test.pdf &
+	cp $(BUILD_DIR)/negzero.pdf notebook-test.pdf
+	okular notebook-test.pdf &
 
 fast: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex
-	cp $(BUILD_DIR)/negzero.pdf negzero-test.pdf
-	okular negzero-test.pdf &
+	cp $(BUILD_DIR)/negzero.pdf notebook-test.pdf
+	okular notebook-test.pdf &
 
 compileall:
 	./scripts/compile_all.sh .
