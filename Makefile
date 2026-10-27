@@ -26,10 +26,6 @@ notebook: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
 	cp $(BUILD_DIR)/negzero.pdf notebook.pdf
 
-test: | $(BUILD_DIR)
-	$(LATEX) src/negzero.tex && $(LATEX) src/negzero.tex
-	cp $(BUILD_DIR)/negzero.pdf notebook-test.pdf
-	okular notebook-test.pdf &
 
 fast: | $(BUILD_DIR)
 	$(LATEX) src/negzero.tex
