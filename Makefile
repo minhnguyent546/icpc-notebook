@@ -54,6 +54,6 @@ clean: | $(BUILD_DIR)
 	cd $(BUILD_DIR) && rm -f negzero.aux negzero.log negzero.out negzero.pdf negzero.toc compile.log included_headers
 
 clean_tmp: | $(BUILD_DIR)
-	cd $(BUILD_DIR) && rm -f *.tmp
+	find $(BUILD_DIR) -name '*.tmp' -type f -delete
 
 clean_all: clean clean_tmp
