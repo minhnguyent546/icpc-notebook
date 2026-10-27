@@ -26,7 +26,10 @@ array<int64_t, 3> extended_euclidean(int64_t a, int64_t b) {
 }
 
 int64_t inv(int64_t a, int64_t M) {
+    a %= M;
+    if (a < 0) a += M;
     array<int64_t, 3> x = extended_euclidean(a, M);
+    assert(x[2] == 1);
     int64_t ret = x[0] % M;
     if (ret < 0) ret += M;
     return ret;
