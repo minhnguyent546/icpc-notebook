@@ -1,5 +1,6 @@
 export TEXINPUTS=.:src/tex/:
 BUILD_DIR=./build
+JOBS ?= 2
 LATEX=pdflatex -shell-escape -output-directory $(BUILD_DIR)
 
 default: help
@@ -9,7 +10,7 @@ help:
 	@echo "Here are all available commands:"
 	@echo "- make notebook:		to build notebook.pdf file"
 	@echo "- make test:			to build notebook-test.pdf file (for testing)"
-	@echo "- make compileall: 		to test compiling all headers"
+	@echo "- make compileall: 		to test compiling all headers (JOBS=N to set parallel jobs, default 2)"
 	@echo "- make findexcluded:		to show headers that are not included"
 	@echo "- make clean:			remove all LaTeX automatically generated files"
 	@echo "- make clean_tmp:		remove tmp files"
@@ -36,7 +37,7 @@ fast: | $(BUILD_DIR)
 	okular notebook-test.pdf &
 
 compileall:
-	./scripts/compile_all.sh .
+	./scripts/compile_all.sh -j $(JOBS) .
 
 findexcluded: $(BUILD_DIR)
 	./scripts/find_excluded.sh

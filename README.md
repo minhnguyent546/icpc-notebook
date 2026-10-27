@@ -22,7 +22,7 @@ For Arch-based systems, refer to the [Arch Wiki](https://wiki.archlinux.org/titl
 
 After updating the source codes, you can verify syntax in header files by running:
 ```bash
-make compileall
+JOBS=4 make compileall
 ```
 
 If the compilation times are not displayed properly (e.g. `finished in 0,0s`), try changing locale to `en_US.UTF-8`:
