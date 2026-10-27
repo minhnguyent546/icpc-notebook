@@ -1,5 +1,5 @@
 #include "../utilities/template.h"
-#include "../../source/number-theory/divisor_sieve.h"
+#include "../../src/number-theory/divisor_sieve.h"
 
 int main() {
     ios::sync_with_stdio(false);

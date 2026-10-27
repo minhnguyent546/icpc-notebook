@@ -1,5 +1,5 @@
 #include "../utilities/template.h"
-#include "../../source/number-theory/mobius_function.h"
+#include "../../src/number-theory/mobius_function.h"
 
 int main() {
     ios::sync_with_stdio(false);
