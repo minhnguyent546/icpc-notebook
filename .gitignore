@@ -7,6 +7,12 @@
 *.bak
 *.gch
 
+# python stuff
+__pycache__
+.ipynb_checkpoints
+.pytest_cache
+.ruff_cache
+
 # some more stuff
 src/**/*.cpp
 src/**/TODO.txt
