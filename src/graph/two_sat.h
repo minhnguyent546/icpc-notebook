@@ -7,6 +7,7 @@
  * Usage:
  *   - TwoSat twosat(number of boolean variables);
  *   - twosat.either(a, \textasciitilde b); // a is true or b is false
+ *   - twosat.at\_most\_one(\{a, \textasciitilde b, c\}); // adds len - 2 new variables
  *   - twosat.solve(); // return true iff the above formula is satisfiable
  */
 
@@ -15,8 +16,12 @@ struct TwoSat {
     vector<vector<int>> g, tg; // g and transpose of g
     vector<int> comp, order;
     vector<bool> vis, vals;
-    TwoSat(int _n): n(_n), g(2 * n), tg(2 * n),
-        comp(2 * n), vis(2 * n), vals(n) {}
+    TwoSat(int _n): n(_n), g(2 * n), tg(2 * n) {}
+    int add_var() {
+        g.emplace_back(); g.emplace_back();
+        tg.emplace_back(); tg.emplace_back();
+        return n++;
+    }
     void either(int u, int v) {
         u = max(2 * u, -2 * u - 1);
         v = max(2 * v, -2 * v - 1);
@@ -26,6 +31,18 @@ struct TwoSat {
         tg[u].push_back(v ^ 1);
     }
     void set(int u) { either(u, u); }
+    void at_most_one(const vector<int> &li) {
+        if ((int) li.size() <= 1) return;
+        int cur = ~li[0];
+        for (int i = 2; i < (int) li.size(); ++i) {
+            int nxt = add_var();
+            either(cur, ~li[i]);
+            either(cur, nxt);
+            either(~li[i], nxt);
+            cur = ~nxt;
+        }
+        either(cur, ~li[1]);
+    }
     void dfs1(int u) {
         vis[u] = true;
         for (int v : g[u]) {
@@ -40,10 +57,11 @@ struct TwoSat {
         }
     }
     bool solve() {
+        comp.assign(2 * n, -1); vis.assign(2 * n, false);
+        vals.assign(n, false); order.clear();
         for (int i = 0; i < 2 * n; ++i) {
             if (!vis[i]) dfs1(i);
         }
-        fill(comp.begin(), comp.end(), -1);
         for (int i = 2 * n - 1, scc_id = 0; i >= 0; --i) {
             int u = order[i];
             if (comp[u] == -1) dfs2(u, scc_id++);
