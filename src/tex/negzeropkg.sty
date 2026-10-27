@@ -193,11 +193,15 @@
   \setboolean{hastime}{false}
   \setboolean{hasspace}{false}
   \setboolean{hasfilemetadata}{false}
-  \immediate\write18{rm -f \@tmpfile}
+  % separate cache file per mode, so toggling clang-format regenerates
+  \ifthenelse{\boolean{clangformat}}{\def\@tmpfile{\@builddir/\@chapterdir/#1.cf.tmp}}{}
+  % regenerate only when an input is newer than the cached output (`make clean_tmp` clears the cache);
+  % \space is needed because TeX drops the space after a macro
+  \def\@isfresh{[ \@tmpfile\space -nt \@chapterdir/#1 ] && [ \@tmpfile\space -nt scripts/code_preprocessor.py ] && [ \@tmpfile\space -nt .clang-format ]}
   \ifthenelse{\boolean{clangformat}}{
-    \immediate\write18{python3 scripts/code_preprocessor.py \@chapterdir/#1 --clang-format --output \@tmpfile}
+    \immediate\write18{\@isfresh || python3 scripts/code_preprocessor.py \@chapterdir/#1 --clang-format --output \@tmpfile}
   }{
-    \immediate\write18{python3 scripts/code_preprocessor.py \@chapterdir/#1 --output \@tmpfile}
+    \immediate\write18{\@isfresh || python3 scripts/code_preprocessor.py \@chapterdir/#1 --output \@tmpfile}
   }
   \input{\@tmpfile}
 }
