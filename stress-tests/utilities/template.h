@@ -15,3 +15,6 @@ const int INF = 0x3f3f3f3f;
 int rand(int a, int b) {
 	return uniform_int_distribution<int>(a, b)(rng);
 }
+long long rand(long long a, long long b) {
+	return uniform_int_distribution<long long>(a, b)(rng);
+}
